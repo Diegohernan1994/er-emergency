@@ -1,0 +1,313 @@
+---
+// WhyChooseUs.astro - Clean Why Choose Us Section (Grid 3+2 desktop, carousel on mobile)
+---
+
+<section class="why-choose-section" id="whyChooseSection">
+  <div class="container">
+    
+    <!-- Large White Container Box matching reference design -->
+    <div class="why-section-card">
+      
+      <!-- Header -->
+      <div class="why-header">
+        <h2 class="section-title">
+          Why Los Angeles Property Owners Call ER Emergency Restoration
+        </h2>
+      </div>
+
+      <!-- 5 Cards: 3 on top row, 2 centered below on desktop; Horizontal carousel on mobile -->
+      <div class="why-cards-container" id="whyCardsCarousel">
+        
+        <!-- Card 1 -->
+        <div class="why-card-item">
+          <div class="why-icon-circle">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <h3 class="why-card-title">Available 24/7</h3>
+          <p class="why-card-text">
+            Water damage does not wait for business hours. Our team is available day or night when you need help.
+          </p>
+        </div>
+
+        <!-- Card 2 (Featured icon accent) -->
+        <div class="why-card-item featured">
+          <div class="why-icon-circle">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <h3 class="why-card-title">Fast, Professional Response</h3>
+          <p class="why-card-text">
+            We can arrive on-site within hours to assess the situation and begin the work needed to mitigate water damage.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="why-card-item">
+          <div class="why-icon-circle">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="why-card-title">Licensed and Insured</h3>
+          <p class="why-card-text">
+            Your property is handled by a licensed and insured restoration team.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="why-card-item">
+          <div class="why-icon-circle">
+            <i class="fa-solid fa-hammer"></i>
+          </div>
+          <h3 class="why-card-title">Full-Service Restoration</h3>
+          <p class="why-card-text">
+            From water extraction and drying to cleanup, repair, and restoration, we provide a complete path forward.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="why-card-item">
+          <div class="why-icon-circle">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <h3 class="why-card-title">Clear Communication</h3>
+          <p class="why-card-text">
+            We explain what we find, what needs to happen next, and how the restoration process moves forward.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Mobile Carousel Indicators -->
+      <div class="carousel-controls" id="whyCarouselDots">
+        <span class="carousel-dot active" data-index="0"></span>
+        <span class="carousel-dot" data-index="1"></span>
+        <span class="carousel-dot" data-index="2"></span>
+        <span class="carousel-dot" data-index="3"></span>
+        <span class="carousel-dot" data-index="4"></span>
+      </div>
+
+      <!-- Action Button -->
+      <div class="why-cta-wrap">
+        <a href="tel:8185756016" class="btn-red">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span>Call Now for 24/7 Water Damage Help</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function initWhyCarousel() {
+    const container = document.getElementById('whyCardsCarousel');
+    const dots = document.querySelectorAll('#whyCarouselDots .carousel-dot');
+    if (!container || !dots.length) return;
+
+    // Update active dot on scroll
+    container.addEventListener('scroll', () => {
+      const scrollLeft = container.scrollLeft;
+      const card = container.querySelector('.why-card-item') as HTMLElement;
+      if (!card) return;
+      const cardWidth = card.offsetWidth + 16;
+      const activeIndex = Math.round(scrollLeft / cardWidth);
+
+      dots.forEach((dot, idx) => {
+        if (idx === activeIndex) dot.classList.add('active');
+        else dot.classList.remove('active');
+      });
+    }, { passive: true });
+
+    // Click dot to navigate
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        const cards = container.querySelectorAll('.why-card-item');
+        if (cards[idx]) {
+          cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWhyCarousel);
+  } else {
+    initWhyCarousel();
+  }
+</script>
+
+<style>
+  .why-choose-section {
+    padding: 70px 0;
+    background-color: #FFFFFF;
+    position: relative;
+  }
+
+  /* Seamless Container without borders or outer boxed card */
+  .why-section-card {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    position: relative;
+  }
+
+  /* Header */
+  .why-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 48px;
+  }
+
+  .why-header .section-title {
+    margin-bottom: 12px;
+  }
+
+  .why-header .section-desc {
+    margin-bottom: 0;
+  }
+
+  /* Cards Flex Layout: 3 on row 1, 2 centered on row 2 */
+  .why-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px 28px;
+  }
+
+  /* Desktop: open, borderless cards on white background */
+  .why-card-item {
+    flex: 0 1 calc(33.333% - 24px);
+    max-width: 350px;
+    min-width: 280px;
+    background: transparent;
+    border: none;
+    border-radius: 20px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+
+  .why-card-item:hover {
+    background: #F8FAFC;
+    box-shadow: 0 10px 25px rgba(12, 35, 64, 0.05);
+    transform: translateY(-4px);
+  }
+
+  /* Circular Icon: all matched to the Fast icon design (solid brand red gradient + white icon + red glow) */
+  .why-icon-circle {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    background: linear-gradient(135deg, #E62E2D 0%, #B91C1C 100%);
+    border: none;
+    color: #FFFFFF;
+    box-shadow: 0 10px 24px -2px rgba(230, 46, 45, 0.42);
+  }
+
+  .why-card-item:hover .why-icon-circle {
+    transform: scale(1.1);
+    box-shadow: 0 14px 28px -2px rgba(230, 46, 45, 0.55);
+  }
+
+  /* Typography inside card */
+  .why-card-title {
+    font-family: var(--font-title);
+    font-size: 19px;
+    font-weight: 800;
+    color: #0C2340;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .why-card-text {
+    font-family: var(--font-base);
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #64748B;
+    margin: 0 auto;
+    max-width: 320px;
+  }
+
+  /* Bottom CTA */
+  .why-cta-wrap {
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  /* Mobile Carousel Controls */
+  .carousel-controls {
+    display: none;
+  }
+
+  @media (max-width: 991px) {
+    .why-section-card {
+      padding: 0;
+      border-radius: 0;
+    }
+    
+    .why-cards-container {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 16px;
+      padding: 10px 4px 20px;
+      justify-content: flex-start;
+      scrollbar-width: none;
+    }
+    .why-cards-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* On mobile, cards are distinct swipeable containers with smooth shadow */
+    .why-card-item {
+      flex: 0 0 84%;
+      max-width: 84%;
+      min-width: unset;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 22px;
+      padding: 34px 22px 28px;
+      box-shadow: 0 8px 24px rgba(12, 35, 64, 0.05);
+      scroll-snap-align: center;
+    }
+
+    /* Carousel dots */
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .carousel-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #CBD5E1;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .carousel-dot.active {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #E62E2D;
+      transform: scale(1.3);
+      box-shadow: 0 0 0 3px rgba(230, 46, 45, 0.2);
+    }
+  }
+</style>

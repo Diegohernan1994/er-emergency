@@ -1,0 +1,226 @@
+---
+// Header.astro - ER Emergency Restoration Sticky Header
+---
+
+<!-- Announcement Topbar (Desktop only, hidden on mobile) -->
+<div class="announcement-topbar" id="announcementTopbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span class="status-badge">
+          <span class="pulse-dot"></span>
+          <strong>24/7 Immediate Dispatch</strong> &mdash; On-Site Within Hours
+        </span>
+        <span class="topbar-sep">|</span>
+        <span class="topbar-contractor">Licensed &amp; Insured Restoration Contractor</span>
+      </div>
+      <div class="topbar-right">
+        <span>Need Urgent Help?</span>
+        <a href="tel:8185756016" class="topbar-phone">(818) 575-6016</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Sticky Header (Desktop & Mobile) -->
+<header class="main-site-header" id="mainSiteHeader">
+  <div class="container">
+    <div class="header-inner">
+      
+      <!-- Brand Logo -->
+      <a href="/" class="header-logo-link" aria-label="ER Emergency Restoration Home">
+        <img 
+          src="/assets/images/er/ER-Emergency-Restoration-Logo-wht-1-1.png" 
+          alt="ER Emergency Restoration" 
+          class="header-logo"
+        />
+      </a>
+
+      <!-- Right Contact Info & Call Button -->
+      <div class="header-actions">
+        <div class="header-phone-box">
+          <div class="phone-label">24/7 Help Available</div>
+          <a href="tel:8185756016" class="phone-link">(818) 575-6016</a>
+        </div>
+
+        <a href="tel:8185756016" class="btn-red header-cta-btn">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span>Call 24/7</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Announcement Topbar (Desktop) */
+  .announcement-topbar {
+    background-color: #071526;
+    color: #94A3B8;
+    font-size: 13px;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    z-index: 999;
+  }
+
+  .topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #F8FAFC;
+    font-size: 13px;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #E62E2D;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 2px rgba(230, 46, 45, 0.35);
+  }
+
+  .topbar-sep {
+    color: #475569;
+  }
+
+  .topbar-contractor {
+    color: #94A3B8;
+    font-size: 13px;
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  .topbar-phone {
+    color: #E62E2D;
+    font-weight: 800;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .topbar-phone:hover {
+    color: #CC2423;
+  }
+
+  /* Main Header - Sticky on Desktop & Mobile */
+  .main-site-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #0C2340;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.25s ease;
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+  }
+
+  .header-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .header-logo {
+    height: 48px;
+    width: auto;
+    max-width: 220px;
+    display: block;
+    object-fit: contain;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .header-phone-box {
+    text-align: right;
+  }
+
+  .phone-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #94A3B8;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .phone-link {
+    font-size: 20px;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-decoration: none;
+    line-height: 1.1;
+  }
+
+  .header-cta-btn {
+    padding: 10px 22px;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* Mobile Rules */
+  @media (max-width: 768px) {
+    /* Hide announcement topbar exclusively on mobile */
+    .announcement-topbar {
+      display: none !important;
+    }
+
+    /* Sticky header on mobile */
+    .main-site-header {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    .header-inner {
+      padding: 10px 0;
+    }
+
+    .header-logo {
+      height: 38px;
+      max-width: 170px;
+    }
+
+    .header-phone-box {
+      display: none !important;
+    }
+
+    .header-cta-btn {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+  }
+</style>

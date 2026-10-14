@@ -1,0 +1,104 @@
+---
+// Footer.astro - Centered Minimal Footer (ER Emergency Restoration)
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-centered-wrap">
+      
+      <!-- Centered Brand Logo -->
+      <a href="/" class="footer-logo-link" aria-label="ER Emergency Restoration Home">
+        <img 
+          src="/assets/images/er/ER-Emergency-Restoration-Logo-wht-1-1.png" 
+          alt="ER Emergency Restoration" 
+          class="footer-logo"
+          loading="lazy"
+        />
+      </a>
+
+      <!-- Centered Copyright Line -->
+      <p class="footer-copyright">
+        &copy; {currentYear} ER Emergency Restoration. All Rights Reserved. Licensed &amp; Insured.
+      </p>
+
+    </div>
+  </div>
+</footer>
+
+
+
+<style>
+  .site-footer {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 38px 0;
+    border-top: 1px solid #E2E8F0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .footer-centered-wrap {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-logo-link:hover {
+    opacity: 0.88;
+  }
+
+  .footer-logo {
+    height: 48px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .footer-copyright {
+    margin: 0;
+    font-size: 13.5px;
+    color: #64748B;
+    line-height: 1.5;
+    text-align: center;
+    font-family: var(--font-base);
+  }
+
+  @media (max-width: 768px) {
+    .site-footer {
+      padding: 30px 16px 95px; /* extra bottom padding on mobile for sticky phone bar */
+      overflow: hidden;
+    }
+    .footer-centered-wrap {
+      width: 100%;
+      max-width: 100%;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+    .footer-logo {
+      height: 40px;
+    }
+    .footer-copyright {
+      font-size: 12px;
+      max-width: 300px;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+  }
+</style>

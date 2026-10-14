@@ -1,0 +1,438 @@
+---
+// ProcessSection.astro - 21st.dev Vertical Tabs Design (Exact match to reference)
+---
+
+<section class="process-section" id="processSection">
+  <div class="container">
+    <!-- Clean, Crisp White Card (Matches 21st.dev reference) -->
+    <div class="vtabs-card">
+      
+      <!-- Header inside the card -->
+      <div class="vtabs-header">
+        <h2 class="vtabs-title">How Emergency Water Damage Restoration Works</h2>
+      </div>
+
+      <!-- 2-Column Vertical Tabs Layout -->
+      <div class="vtabs-grid" id="vtabsWrapper">
+        
+        <!-- Left Column: Vertical Tabs List -->
+        <div class="vtabs-list">
+          
+          <!-- Step 1 (Active by default) -->
+          <div class="vtab-item active" data-step="0">
+            <div class="vtab-heading">
+              <span class="vtab-num">/01</span>
+              <h3 class="vtab-title">Call Us 24/7</h3>
+            </div>
+            <div class="vtab-desc-wrap">
+              <p class="vtab-desc">
+                Tell us what happened, where the water is coming from, and where your property is located. If the situation is urgent, call <a href="tel:8185756016" class="phone-link">(818) 575-6016</a> for immediate help.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="vtab-item" data-step="1">
+            <div class="vtab-heading">
+              <span class="vtab-num">/02</span>
+              <h3 class="vtab-title">We Mitigate and Dry the Damage</h3>
+            </div>
+            <div class="vtab-desc-wrap">
+              <p class="vtab-desc">
+                Our team assesses the affected areas, extracts water, begins drying, and works to address moisture that could create further problems.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="vtab-item" data-step="2">
+            <div class="vtab-heading">
+              <span class="vtab-num">/03</span>
+              <h3 class="vtab-title">We Restore Your Property</h3>
+            </div>
+            <div class="vtab-desc-wrap">
+              <p class="vtab-desc">
+                Once the affected areas are addressed, we help move your property through cleanup, repair, and restoration, with documentation along the way.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Media Display Frame -->
+        <div class="vtabs-media">
+          <div class="vtabs-media-inner">
+            <img 
+              src="/assets/images/restoration/hero-water-damage-restoration.webp" 
+              alt="Step 1: Call Us 24/7" 
+              class="vtabs-img-layer active" 
+              data-step-img="0"
+              loading="lazy"
+            />
+            <img 
+              src="/assets/images/restoration/technician-floor-drying-2k.webp" 
+              alt="Step 2: We Mitigate and Dry the Damage" 
+              class="vtabs-img-layer" 
+              data-step-img="1"
+              loading="lazy"
+            />
+            <img 
+              src="/assets/images/restoration/technician-cleaning-stain-2k.webp" 
+              alt="Step 3: We Restore Your Property" 
+              class="vtabs-img-layer" 
+              data-step-img="2"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Circular Nav Arrows in bottom right of image -->
+          <div class="vtabs-nav">
+            <button type="button" class="nav-arrow-btn prev-btn" aria-label="Previous step">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button type="button" class="nav-arrow-btn next-btn" aria-label="Next step">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Button inside card -->
+      <div class="vtabs-cta-wrap">
+        <a href="#heroLeadFormCard" class="btn-red">
+          <span>Start My Water Damage Recovery</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  function initProcessTabs() {
+    const wrapper = document.getElementById('vtabsWrapper');
+    if (!wrapper) return;
+
+    const tabs = wrapper.querySelectorAll('.vtab-item');
+    const imgs = wrapper.querySelectorAll('.vtabs-img-layer');
+    const prevBtn = wrapper.querySelector('.prev-btn');
+    const nextBtn = wrapper.querySelector('.next-btn');
+
+    let current = 0;
+
+    function setStep(idx: number) {
+      if (idx < 0) idx = tabs.length - 1;
+      if (idx >= tabs.length) idx = 0;
+      current = idx;
+
+      tabs.forEach((t, i) => {
+        if (i === current) t.classList.add('active');
+        else t.classList.remove('active');
+      });
+
+      imgs.forEach((img, i) => {
+        if (i === current) img.classList.add('active');
+        else img.classList.remove('active');
+      });
+    }
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => setStep(i));
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setStep(current - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setStep(current + 1);
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProcessTabs);
+  } else {
+    initProcessTabs();
+  }
+</script>
+
+<style>
+  .process-section {
+    padding: 80px 0;
+    background-color: #F8FAFC;
+    position: relative;
+  }
+
+  /* Main White Box Card (strictly matching 21st.dev reference) */
+  .vtabs-card {
+    background: #FFFFFF;
+    border-radius: 32px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 10px 40px -10px rgba(12, 35, 64, 0.08);
+    padding: 56px 64px 60px;
+  }
+
+  /* Header inside the card */
+  .vtabs-header {
+    margin-bottom: 44px;
+  }
+
+  .vtabs-title {
+    font-family: var(--font-title);
+    font-size: clamp(28px, 3.2vw, 40px);
+    font-weight: 800;
+    color: #0C2340;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin: 0 0 8px 0;
+  }
+
+  .vtabs-subtitle {
+    font-family: var(--font-base);
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    color: #E62E2D;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  /* 2-Column Grid Layout */
+  .vtabs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.12fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  /* Left Column: Vertical Tabs List */
+  .vtabs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+  }
+
+  /* Tab Item */
+  .vtab-item {
+    position: relative;
+    padding: 12px 0 12px 24px;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    user-select: none;
+  }
+
+  .vtab-item:hover {
+    border-left-color: #CBD5E1;
+  }
+
+  .vtab-item.active {
+    border-left-color: #E62E2D;
+  }
+
+  /* Heading: Number + Title on the same baseline */
+  .vtab-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .vtab-num {
+    font-size: 15px;
+    font-weight: 700;
+    color: #94A3B8;
+    letter-spacing: -0.3px;
+    transition: color 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .vtab-title {
+    font-family: var(--font-title);
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 800;
+    color: #94A3B8;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+    transition: color 0.25s ease;
+    margin: 0;
+  }
+
+  .vtab-item:hover .vtab-title,
+  .vtab-item:hover .vtab-num {
+    color: #64748B;
+  }
+
+  .vtab-item.active .vtab-num {
+    color: #E62E2D;
+    font-weight: 800;
+  }
+
+  .vtab-item.active .vtab-title {
+    color: #0C2340;
+  }
+
+  /* Description: ONLY visible for active tab */
+  .vtab-desc-wrap {
+    display: none;
+    padding-left: 32px;
+    margin-top: 10px;
+  }
+
+  .vtab-item.active .vtab-desc-wrap {
+    display: block;
+    animation: vtabFade 0.3s ease-out forwards;
+  }
+
+  .vtab-desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #64748B;
+    margin: 0;
+  }
+
+  .phone-link {
+    color: #E62E2D;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  @keyframes vtabFade {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Right Column: Media Display Frame */
+  .vtabs-media {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 28px;
+    overflow: hidden;
+    background-color: #0C2340;
+    box-shadow: 0 12px 35px rgba(12, 35, 64, 0.12);
+  }
+
+  .vtabs-media-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .vtabs-img-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, transform 0.5s ease, visibility 0.4s;
+    transform: scale(1.03);
+  }
+
+  .vtabs-img-layer.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  /* Circular Navigation Arrows at Bottom-Right of Image */
+  .vtabs-nav {
+    position: absolute;
+    bottom: 22px;
+    right: 22px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .nav-arrow-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0C2340;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+    transition: all 0.2s ease;
+  }
+
+  .nav-arrow-btn:hover {
+    background: #FFFFFF;
+    color: #E62E2D;
+    transform: scale(1.08);
+  }
+
+  .nav-arrow-btn:active {
+    transform: scale(0.96);
+  }
+
+  /* Bottom CTA Wrap */
+  .vtabs-cta-wrap {
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  .btn-red {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #E62E2D;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 36px;
+    border-radius: 30px;
+    box-shadow: 0 4px 16px rgba(230, 46, 45, 0.35);
+    transition: all 0.25s ease;
+  }
+
+  .btn-red:hover {
+    background-color: #CC2423;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(230, 46, 45, 0.45);
+  }
+
+  /* Responsive for mobile */
+  @media (max-width: 991px) {
+    .vtabs-card {
+      padding: 36px 20px;
+      border-radius: 24px;
+    }
+    .vtabs-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .vtabs-media {
+      height: 280px;
+      border-radius: 20px;
+    }
+    .vtab-desc-wrap {
+      padding-left: 0;
+    }
+  }
+</style>

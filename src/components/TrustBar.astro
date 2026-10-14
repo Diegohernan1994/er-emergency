@@ -1,0 +1,198 @@
+---
+// TrustBar.astro - Continuous Infinite Auto-Scrolling Marquee Carousel
+const metrics = [
+  {
+    icon: "fa-solid fa-clock-rotate-left",
+    text: "24/7 Emergency Response"
+  },
+  {
+    icon: "fa-solid fa-shield-halved",
+    text: "Licensed & Insured"
+  },
+  {
+    icon: "fa-solid fa-award",
+    text: "10 Years of Restoration Experience"
+  },
+  {
+    icon: "fa-solid fa-hand-sparkles",
+    text: "Complete Cleanup & Restoration"
+  }
+];
+---
+
+<section class="trust-bar-section" aria-label="Key Service Guarantees">
+  <div class="trust-marquee-wrapper">
+    
+    <!-- Edge Gradients for Smooth Seamless Fade -->
+    <div class="edge-gradient edge-left" aria-hidden="true"></div>
+    <div class="edge-gradient edge-right" aria-hidden="true"></div>
+
+    <!-- Infinite Auto-Scrolling Track (Duplicated for 100% Seamless Loop) -->
+    <div class="trust-marquee-track">
+      
+      <!-- Primary Group -->
+      <div class="trust-marquee-group">
+        {metrics.map((item) => (
+          <div class="trust-metric-item">
+            <i class={`${item.icon} metric-icon`} aria-hidden="true"></i>
+            <span class="metric-text">{item.text}</span>
+            <span class="metric-bullet" aria-hidden="true">&bull;</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Duplicate Group (Required for Infinite Seamless Marquee) -->
+      <div class="trust-marquee-group" aria-hidden="true">
+        {metrics.map((item) => (
+          <div class="trust-metric-item">
+            <i class={`${item.icon} metric-icon`} aria-hidden="true"></i>
+            <span class="metric-text">{item.text}</span>
+            <span class="metric-bullet" aria-hidden="true">&bull;</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Third Group to Ensure No Gaps on Ultra-Wide Monitors -->
+      <div class="trust-marquee-group" aria-hidden="true">
+        {metrics.map((item) => (
+          <div class="trust-metric-item">
+            <i class={`${item.icon} metric-icon`} aria-hidden="true"></i>
+            <span class="metric-text">{item.text}</span>
+            <span class="metric-bullet" aria-hidden="true">&bull;</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Fourth Group to Ensure Complete Coverage -->
+      <div class="trust-marquee-group" aria-hidden="true">
+        {metrics.map((item) => (
+          <div class="trust-metric-item">
+            <i class={`${item.icon} metric-icon`} aria-hidden="true"></i>
+            <span class="metric-text">{item.text}</span>
+            <span class="metric-bullet" aria-hidden="true">&bull;</span>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-bar-section {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E2E8F0;
+    padding: 16px 0;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+  }
+
+  .trust-marquee-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .edge-gradient {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .edge-left {
+    left: 0;
+    background: linear-gradient(to right, #FFFFFF 20%, rgba(255, 255, 255, 0));
+  }
+
+  .edge-right {
+    right: 0;
+    background: linear-gradient(to left, #FFFFFF 20%, rgba(255, 255, 255, 0));
+  }
+
+  /* Marquee Track */
+  .trust-marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: trustMarqueeScroll 28s linear infinite;
+  }
+
+  .trust-marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Single Group */
+  .trust-marquee-group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .trust-metric-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 18px;
+    flex-shrink: 0;
+  }
+
+  .metric-icon {
+    color: #E62E2D;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .metric-text {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #0C2340;
+    letter-spacing: -0.2px;
+    white-space: nowrap;
+    font-family: var(--font-base);
+  }
+
+  .metric-bullet {
+    color: #CBD5E1;
+    font-size: 14px;
+    margin-left: 18px;
+    flex-shrink: 0;
+  }
+
+  /* Continuous Animation: 4 groups total, translating by 50% (2 groups) produces perfect loop */
+  @keyframes trustMarqueeScroll {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .trust-bar-section {
+      padding: 13px 0;
+    }
+    .trust-marquee-track {
+      animation-duration: 20s;
+    }
+    .trust-metric-item {
+      padding: 4px 14px;
+      gap: 8px;
+    }
+    .metric-icon {
+      font-size: 16px;
+    }
+    .metric-text {
+      font-size: 13.5px;
+    }
+    .metric-bullet {
+      margin-left: 14px;
+    }
+  }
+</style>

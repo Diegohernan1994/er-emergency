@@ -1,0 +1,160 @@
+---
+// Layout.astro - Clean Layout for ER Emergency Restoration
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "24/7 Water Damage Restoration Services | ER Emergency Restoration",
+  description = "Flooded room, burst pipe, or active leak? ER Emergency Restoration provides rapid water extraction, structural drying, cleanup, and restoration for homes and businesses in SoCal. Available 24/7."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+
+  <!-- Preload Gilmer font for instant title rendering -->
+  <link rel="preload" href="/assets/fonts/gilmer-bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/gilmer-heavy.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- FontAwesome Icons CDN for clean icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <slot />
+
+  <!-- Floating Call Bar for Mobile (<= 991px) -->
+  <div class="mobile-call-bar" id="mobileCallBar">
+    <div>
+      <div style="font-size: 11px; text-transform: uppercase; color: var(--color-primary); font-weight: 800; letter-spacing: 0.5px;">
+        24/7 Emergency Help
+      </div>
+      <a href="tel:8185756016" style="font-size: 16px; font-weight: 900; color: var(--color-navy);">
+        (818) 575-6016
+      </a>
+    </div>
+    <a href="tel:8185756016" class="btn-red" style="padding: 10px 18px; font-size: 13px;">
+      <i class="fa-solid fa-phone"></i> Call Now
+    </a>
+  </div>
+
+  <!-- Form Controller AJAX for Multi-Step Lead Form (Guía Maestra Opción A) -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const forms = document.querySelectorAll('form[data-landing]');
+      
+      forms.forEach(form => {
+        const step1 = form.querySelector('.form-step-1');
+        const step2 = form.querySelector('.form-step-2');
+        const btnNext = form.querySelector('.btn-step-next');
+        const btnBack = form.querySelector('.btn-step-back');
+        const bubble1 = form.querySelector('.bubble-step-1');
+        const bubble2 = form.querySelector('.bubble-step-2');
+
+        // Radio Pill Selection
+        const radioPills = form.querySelectorAll('.radio-pill-item');
+        radioPills.forEach(pill => {
+          const radio = pill.querySelector('input[type="radio"]');
+          pill.addEventListener('click', () => {
+            const groupName = radio.name;
+            form.querySelectorAll(`input[name="${groupName}"]`).forEach(r => {
+              r.closest('.radio-pill-item')?.classList.remove('selected');
+            });
+            radio.checked = true;
+            pill.classList.add('selected');
+          });
+        });
+
+        // Step Navigation
+        if (btnNext && step1 && step2) {
+          btnNext.addEventListener('click', (e) => {
+            e.preventDefault();
+            const zipInput = form.querySelector('[name="zip"]');
+            if (zipInput && !zipInput.value.trim()) {
+              zipInput.focus();
+              zipInput.style.borderColor = '#E62E2D';
+              return;
+            }
+            if (zipInput) zipInput.style.borderColor = '#CBD5E1';
+
+            step1.style.display = 'none';
+            step2.style.display = 'block';
+            if (bubble2) bubble2.classList.add('active');
+            
+            const firstInput = form.querySelector('[name="first_name"]');
+            if (firstInput) firstInput.focus();
+          });
+        }
+
+        if (btnBack && step1 && step2) {
+          btnBack.addEventListener('click', (e) => {
+            e.preventDefault();
+            step2.style.display = 'none';
+            step1.style.display = 'block';
+            if (bubble2) bubble2.classList.remove('active');
+          });
+        }
+
+        // Form Submit
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+
+          const phoneInput = form.querySelector('[name="phone"]');
+          if (phoneInput && !phoneInput.value.trim()) {
+            phoneInput.focus();
+            phoneInput.style.borderColor = '#E62E2D';
+            return;
+          }
+
+          const ownerAuth = form.querySelector('input[name="owner_auth"]:checked')?.value || 'Not specified';
+          const propType = form.querySelector('input[name="property_type"]:checked')?.value || 'Residential';
+
+          const payload = {
+            owner_auth: ownerAuth,
+            property_type: propType,
+            zip: form.querySelector('[name="zip"]')?.value?.trim() || '',
+            message: form.querySelector('[name="message"]')?.value?.trim() || '',
+            first_name: form.querySelector('[name="first_name"]')?.value?.trim() || '',
+            last_name: form.querySelector('[name="last_name"]')?.value?.trim() || '',
+            name: `${form.querySelector('[name="first_name"]')?.value?.trim() || ''} ${form.querySelector('[name="last_name"]')?.value?.trim() || ''}`.trim(),
+            phone: form.querySelector('[name="phone"]')?.value?.trim() || '',
+            email: form.querySelector('[name="email"]')?.value?.trim() || '',
+            landing: form.getAttribute('data-landing') || 'water-damage-restoration',
+            full_url: window.location.href,
+            timestamp: new Date().toISOString()
+          };
+
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.85';
+            submitBtn.style.cursor = 'not-allowed';
+            submitBtn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px;"><i class="fa-solid fa-spinner fa-spin"></i> Submitting...</span>';
+          }
+
+          try {
+            const res = await fetch('/api/submit-lead.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            window.location.href = '/thank-you/';
+          } catch (err) {
+            window.location.href = '/thank-you/';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

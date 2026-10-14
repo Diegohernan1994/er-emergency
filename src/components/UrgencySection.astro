@@ -1,0 +1,130 @@
+---
+// UrgencySection.astro - Clean Layout (No subtitle borders/backgrounds)
+---
+
+<section class="urgency-section">
+  <div class="container">
+    <div class="urgency-grid">
+      
+      <!-- Left Column: Realistic Image -->
+      <div class="urgency-img-col">
+        <div class="img-frame">
+          <img 
+            src="/assets/images/restoration/technician-floor-drying.webp" 
+            alt="Water Damage Moves Fast - Response" 
+            class="feature-img"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Right Column: Clean Content -->
+      <div class="urgency-copy-col">
+        
+        <!-- H2 Title (Exact copy) -->
+        <h2 class="section-title">
+          Water Damage Moves Fast. So Should Your Response.
+        </h2>
+
+        <!-- Text Paragraphs (Exact copy) -->
+        <p class="section-desc" style="margin-bottom: 14px;">
+          Water can travel quickly through carpet, flooring, drywall, and walls. The longer moisture remains, the greater the chance of additional property damage and mold-related issues.
+        </p>
+
+        <p class="section-desc" style="margin-bottom: 24px;">
+          ER Emergency Restoration responds with the equipment and experience needed to extract water, dry affected areas, identify hidden moisture, and begin restoring your property.
+        </p>
+
+        <!-- Key Points (Exact copy) -->
+        <div class="points-wrapper">
+          <h4 style="font-size: 17px; font-weight: 800; color: #0C2340; margin: 0 0 14px;">Key Points</h4>
+          <ul class="points-list">
+            <li>
+              <i class="fa-solid fa-circle-check text-red"></i>
+              <span>Remove standing water as quickly as possible</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check text-red"></i>
+              <span>Dry affected floors, walls, carpet, and structural materials</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check text-red"></i>
+              <span>Identify moisture that may not be visible at first glance</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check text-red"></i>
+              <span>Document damage and restoration work for your records</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CTA Button (Exact copy) -->
+        <div style="margin-top: 28px;">
+          <a href="#heroLeadFormCard" class="btn-red">
+            <span>Get My Emergency Assessment</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .urgency-section {
+    padding: 70px 0;
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.96) 100%),
+                url('/assets/images/restoration/technician-cleaning-stain-2k.webp') center center / cover no-repeat;
+  }
+  .urgency-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .img-frame {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E2E8F0;
+  }
+  .feature-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+  }
+  .points-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .points-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1E293B;
+  }
+  .points-list li i {
+    font-size: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 991px) {
+    .urgency-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .feature-img {
+      height: 280px;
+    }
+  }
+</style>

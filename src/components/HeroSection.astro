@@ -1,0 +1,445 @@
+---
+// HeroSection.astro - Clean Hero Section (wateremoval.com inspired)
+---
+
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-grid">
+      
+      <!-- Left Column: Copy & Value Propositions -->
+      <div class="hero-copy-col">
+        
+        <!-- Mobile Hero Image (Top on mobile <= 991px per Guía Maestra) -->
+        <div class="mobile-hero-img-wrap">
+          <img 
+            src="/assets/images/restoration/hero-water-damage-restoration.webp" 
+            alt="24/7 Water Damage Restoration Services" 
+            class="mobile-hero-img"
+            loading="eager"
+          />
+        </div>
+
+        <!-- H1 (Exact copy from briefing) -->
+        <h1 class="hero-main-title">
+          24/7 Water Damage Restoration Services
+        </h1>
+
+        <!-- Supporting Copy (Exact copy from briefing) -->
+        <p class="hero-lead-text">
+          Flooded room, burst pipe, or active leak? ER Emergency Restoration provides rapid water extraction, structural drying, cleanup, and restoration for homes and businesses in SoCal
+        </p>
+
+        <p class="hero-sub-text">
+          Our licensed and insured restoration team is available <strong>24/7</strong> and can be on-site <strong>within hours</strong> to help limit further damage and begin the recovery process.
+        </p>
+
+        <!-- Hero Benefit Points (Exact copy from briefing) -->
+        <div class="hero-benefits">
+          <div class="benefit-item">
+            <i class="fa-solid fa-circle-check text-red"></i>
+            <span>Rapid water extraction and targeted drying</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fa-solid fa-circle-check text-red"></i>
+            <span>Cleanup and restoration from one experienced team</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fa-solid fa-circle-check text-red"></i>
+            <span>Damage documentation to support your insurance claim process</span>
+          </div>
+        </div>
+
+        <!-- Emergency Call CTA (Exact copy from briefing) -->
+        <div class="hero-cta-wrap">
+          <a href="tel:8185756016" class="btn-red hero-call-btn">
+            <i class="fa-solid fa-phone-volume"></i>
+            <span>Call Now for 24/7 Help: (818) 575-6016</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Clean 2-Step Lead Capture Form -->
+      <div class="hero-form-col">
+        <div class="clean-form-card" id="heroLeadFormCard">
+          
+          <div class="form-title-wrap">
+            <h3 class="form-title">
+              Get My Free, No-Obligation Water Damage Quote
+            </h3>
+            
+            <div class="form-steps-nav">
+              <span class="step-pill active bubble-step-1">1. Project Info</span>
+              <span class="step-divider"><i class="fa-solid fa-angle-right"></i></span>
+              <span class="step-pill bubble-step-2">2. Contact Info</span>
+            </div>
+          </div>
+
+          <form id="heroLeadForm" data-landing="water-damage-restoration">
+            
+            <!-- STEP 1 OF 2 -->
+            <div class="form-step-1">
+              <div class="step-header-text">
+                Tell Us About the Water Damage
+              </div>
+
+              <!-- Question 1 -->
+              <div class="input-field-group">
+                <label class="field-label">Are you the property owner or authorized to make restoration decisions?</label>
+                <div class="pill-radio-row">
+                  <label class="radio-pill-item selected">
+                    <input type="radio" name="owner_auth" value="Yes" checked />
+                    <span>Yes</span>
+                  </label>
+                  <label class="radio-pill-item">
+                    <input type="radio" name="owner_auth" value="No" />
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 2 -->
+              <div class="input-field-group">
+                <label class="field-label">What kind of location is this?</label>
+                <div class="pill-radio-row">
+                  <label class="radio-pill-item selected">
+                    <input type="radio" name="property_type" value="Residential" checked />
+                    <span>Residential</span>
+                  </label>
+                  <label class="radio-pill-item">
+                    <input type="radio" name="property_type" value="Commercial" />
+                    <span>Commercial</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 3 -->
+              <div class="input-field-group">
+                <label for="h_zip" class="field-label">ZIP Code where the property is located</label>
+                <input 
+                  type="text" 
+                  id="h_zip"
+                  name="zip" 
+                  class="clean-input" 
+                  placeholder="Enter ZIP Code" 
+                  pattern="[0-9]{5}" 
+                  maxlength="10"
+                  required 
+                />
+              </div>
+
+              <!-- Question 4 -->
+              <div class="input-field-group">
+                <label for="h_msg" class="field-label">Please describe the type of water damage or restoration project you need help with.</label>
+                <textarea 
+                  id="h_msg"
+                  name="message" 
+                  class="clean-textarea" 
+                  rows="2" 
+                  placeholder="Example: Burst pipe in the kitchen; water reached the cabinets and flooring."
+                ></textarea>
+              </div>
+
+              <!-- Button: Continue -->
+              <button type="button" class="btn-red btn-step-next w-100" style="width: 100%; margin-top: 6px;">
+                <span>Continue</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <div class="form-microcopy">
+                Water actively flowing or property flooded? Call now: <a href="tel:8185756016">(818) 575-6016</a>
+              </div>
+            </div>
+
+            <!-- STEP 2 OF 2 -->
+            <div class="form-step-2" style="display: none;">
+              <div class="step-2-top-bar">
+                <button type="button" class="btn-step-back back-btn-link">
+                  <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <div class="step-header-text" style="margin: 0;">
+                  How Can We Reach You?
+                </div>
+              </div>
+
+              <div class="name-fields-row">
+                <div class="input-field-group">
+                  <label for="h_fname" class="field-label">First Name</label>
+                  <input type="text" id="h_fname" name="first_name" class="clean-input" placeholder="First Name" required />
+                </div>
+                <div class="input-field-group">
+                  <label for="h_lname" class="field-label">Last Name</label>
+                  <input type="text" id="h_lname" name="last_name" class="clean-input" placeholder="Last Name" required />
+                </div>
+              </div>
+
+              <div class="input-field-group">
+                <label for="h_phone" class="field-label">Phone Number</label>
+                <input type="tel" id="h_phone" name="phone" class="clean-input" placeholder="(818) 000-0000" required />
+              </div>
+
+              <div class="input-field-group">
+                <label for="h_email" class="field-label">Email Address</label>
+                <input type="email" id="h_email" name="email" class="clean-input" placeholder="your.email@example.com" required />
+              </div>
+
+              <button type="submit" class="btn-red w-100" style="width: 100%; margin-top: 6px;">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Get My 24/7 Water Damage Help</span>
+              </button>
+
+              <div class="form-microcopy">
+                Free, no-obligation quote. For immediate water-damage help, call <a href="tel:8185756016">(818) 575-6016</a>.
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    padding: 60px 0 80px;
+    color: #FFFFFF;
+    background: linear-gradient(135deg, rgba(12, 35, 64, 0.88) 0%, rgba(12, 35, 64, 0.72) 48%, rgba(15, 44, 89, 0.58) 100%),
+                url('/assets/images/restoration/technician-operating-equipment-2k.webp') center center / cover no-repeat;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero-main-title {
+    font-size: clamp(32px, 4.2vw, 50px);
+    font-weight: 900;
+    line-height: 1.18;
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #FFFFFF;
+  }
+  .hero-lead-text {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #E2E8F0;
+    margin-bottom: 14px;
+  }
+  .hero-sub-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #CBD5E1;
+    margin-bottom: 24px;
+  }
+  .hero-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #F8FAFC;
+  }
+  .benefit-item i {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .text-cyan {
+    color: #E62E2D;
+  }
+  .text-red {
+    color: #E62E2D;
+  }
+  .text-gold {
+    color: #F59E0B;
+  }
+  .hero-cta-wrap {
+    margin-bottom: 24px;
+  }
+  .hero-call-btn {
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+  .hero-mini-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #94A3B8;
+    font-size: 13px;
+    font-weight: 600;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 18px;
+  }
+  .mini-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Mobile Hero Image */
+  .mobile-hero-img-wrap {
+    display: none;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .mobile-hero-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  /* Form Card Styling (wateremoval.com clean style) */
+  .clean-form-card {
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 28px 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    color: #1E293B;
+  }
+  .form-title-wrap {
+    text-align: center;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #E2E8F0;
+  }
+  .form-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0C2340;
+    line-height: 1.3;
+    margin: 0 0 10px;
+  }
+  .form-steps-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #94A3B8;
+  }
+  .step-pill.active {
+    color: #E62E2D;
+  }
+  .step-header-text {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0C2340;
+    margin-bottom: 14px;
+  }
+  .input-field-group {
+    margin-bottom: 14px;
+  }
+  .field-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+  .clean-input, .clean-textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1E293B;
+    background: transparent;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+  }
+  .clean-input:focus, .clean-textarea:focus {
+    outline: none;
+    border-color: #E62E2D;
+    box-shadow: 0 0 0 3px rgba(230, 46, 45, 0.15);
+  }
+  .pill-radio-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .radio-pill-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    background: transparent;
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+  .radio-pill-item input {
+    display: none;
+  }
+  .radio-pill-item.selected {
+    border-color: #E62E2D;
+    background: transparent;
+    color: #E62E2D;
+    font-weight: 700;
+  }
+  .form-microcopy {
+    font-size: 12px;
+    color: #64748B;
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+  .form-microcopy a {
+    color: #E62E2D;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  .step-2-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .back-btn-link {
+    background: none;
+    border: none;
+    color: #64748B;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+  }
+  .back-btn-link:hover {
+    color: #0C2340;
+  }
+  .name-fields-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  @media (max-width: 991px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .mobile-hero-img-wrap {
+      display: block;
+    }
+    .hero-main-title {
+      font-size: 28px;
+    }
+  }
+</style>

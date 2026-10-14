@@ -1,0 +1,195 @@
+---
+// thank-you.astro - Standard Thank You Page (Guía Maestra Opción A)
+const currentYear = new Date().getFullYear();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — Request Received | ER Emergency Restoration</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    @font-face {
+      font-family: 'Gilmer';
+      src: url('/assets/fonts/gilmer-heavy.woff2') format('woff2');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      font-family: 'Figtree', sans-serif;
+      background-color: #071526;
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+    .thankyou-wrapper {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 36px 20px 24px;
+      background: linear-gradient(135deg, rgba(12, 35, 64, 0.84) 0%, rgba(15, 44, 89, 0.72) 100%),
+                  url('/assets/images/restoration/hero-water-damage-restoration.webp') center center / cover no-repeat;
+    }
+    .thankyou-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 660px;
+      margin: auto;
+      text-align: center;
+    }
+    .brand-logo-wrap {
+      margin-bottom: 24px;
+    }
+    .brand-logo {
+      height: 52px;
+      width: auto;
+      margin: 0 auto;
+      display: block;
+    }
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #E62E2D;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: 'Gilmer', 'Figtree', sans-serif;
+      font-size: clamp(28px, 4.5vw, 40px);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .divider-line {
+      width: 60px;
+      height: 3px;
+      background: #E62E2D;
+      margin: 0 auto 24px;
+      border-radius: 2px;
+    }
+    p.message {
+      font-size: 17px;
+      line-height: 1.65;
+      color: #CBD5E1;
+      margin-bottom: 18px;
+    }
+    p.urgent-notice {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #F8FAFC;
+      background: rgba(230, 46, 45, 0.12);
+      border: 1px solid rgba(230, 46, 45, 0.35);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+    }
+    .btn-call {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #E62E2D;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 16px 36px;
+      border-radius: 30px;
+      box-shadow: 0 8px 20px rgba(230, 46, 45, 0.4);
+      transition: all 0.25s ease;
+      margin-bottom: 18px;
+    }
+    .btn-call:hover {
+      background-color: #CC2423;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(230, 46, 45, 0.5);
+    }
+    .return-link {
+      display: block;
+      color: #94A3B8;
+      font-size: 14px;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .return-link:hover {
+      color: #FFFFFF;
+    }
+    .thankyou-footer {
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: #64748B;
+      padding-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="thankyou-wrapper">
+    
+    <!-- Top Block: Logo -->
+    <div class="brand-logo-wrap">
+      <a href="/">
+        <img 
+          src="/assets/images/er/ER-Emergency-Restoration-Logo-wht-1-1.png" 
+          alt="ER Emergency Restoration" 
+          class="brand-logo" 
+        />
+      </a>
+    </div>
+
+    <!-- Center Block: Exact Copy from MD Doc -->
+    <div class="thankyou-content">
+      <span class="eyebrow">REQUEST RECEIVED</span>
+      <h1>Thank You — Your Request Has Been Received</h1>
+      <div class="divider-line"></div>
+
+      <p class="message">
+        A member of ER Emergency Restoration will contact you as soon as possible to discuss your water-damage situation.
+      </p>
+
+      <p class="urgent-notice">
+        If water is actively flowing, the property is flooded, or you need immediate help, call <strong>(818) 575-6016</strong> now. Our team is available 24/7.
+      </p>
+
+      <a href="tel:8185756016" class="btn-call">
+        Call for Emergency Help
+      </a>
+
+      <a href="/" class="return-link">
+        Return to Homepage
+      </a>
+    </div>
+
+    <!-- Bottom Block: Footer -->
+    <div class="thankyou-footer">
+      <p>© {currentYear} ER Emergency Restoration. Licensed and Insured. Serving Los Angeles & Southern California.</p>
+    </div>
+
+  </div>
+</body>
+</html>

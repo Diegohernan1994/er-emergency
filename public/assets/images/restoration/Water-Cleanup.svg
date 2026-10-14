@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62" fill="none">
+  <circle cx="31" cy="31" r="31" fill="#D3E9FF"></circle>
+  <g clip-path="url(#clip0_0_1)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M46.2 35.8L26.9 16.5C25.9 15.5 24.3 15.5 23.4 16.5L16.2 23.6C15.2 24.6 15.2 26.2 16.2 27.1L35.5 46.4C36.5 47.4 38.1 47.4 39 46.4L46.1 39.3C47.1 38.3 47.1 36.7 46.2 35.8Z" fill="#3772FF" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M21.9 36.4L15.9 42.4" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M20.2 46.7999L26.3 40.7" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M33.9 15.6L31.6 17.9" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M38.2 15.7L33.8 20.1" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M38 20.2L36 22.3" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M42.7 15.6L38.9 19.3" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M42.7 20L38.2 24.5" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M47.3 15.4L44.5 18.1" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M47.1 28.7L44.8 31" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M47 24.4L42.6 28.9" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M42.4 24.6L40.4 26.7" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path d="M47.1 20L43.3 23.7" stroke="#0C2F83" stroke-miterlimit="10"></path>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M27.1 41.5L21.2 35.6L26.4 30.4C28 28.8 30.7 28.8 32.3 30.4C33.9 32 33.9 34.7 32.3 36.3L27.1 41.5Z" fill="white" stroke="#0C2F83" stroke-miterlimit="10"></path>
+  </g>
+  <defs>
+    <clipPath id="clip0_0_1">
+      <rect width="32.6" height="32.6" fill="white" transform="translate(15 15)"></rect>
+    </clipPath>
+  </defs>
+</svg>

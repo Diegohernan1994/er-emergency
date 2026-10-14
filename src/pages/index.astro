@@ -1,0 +1,59 @@
+---
+// index.astro - Clean Landing Page for ER Emergency Restoration (Water Damage Restoration)
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroSection from '../components/HeroSection.astro';
+import TrustBar from '../components/TrustBar.astro';
+import UrgencySection from '../components/UrgencySection.astro';
+import ScenariosSection from '../components/ScenariosSection.astro';
+import CapabilitiesSection from '../components/CapabilitiesSection.astro';
+import ProcessSection from '../components/ProcessSection.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import ServiceAreaSection from '../components/ServiceAreaSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import FinalCtaSection from '../components/FinalCtaSection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="24/7 Water Damage Restoration Services | ER Emergency Restoration"
+  description="Flooded room, burst pipe, or active leak? ER Emergency Restoration provides rapid water extraction, structural drying, cleanup, and restoration for homes and businesses in SoCal. Available 24/7."
+>
+  <!-- Sticky Header -->
+  <Header />
+
+  <main>
+    <!-- Hero Section with 2-Step Lead Form -->
+    <HeroSection />
+
+    <!-- Trust Bar with 4 Metrics, Review Badges, and Insurance Carriers -->
+    <TrustBar />
+
+    <!-- Section 1: Water Damage Moves Fast. So Should Your Response. -->
+    <UrgencySection />
+
+    <!-- Section 2: Water Damage Help for the Emergencies You Did Not Plan For -->
+    <ScenariosSection />
+
+    <!-- Section 3: One Team for Extraction, Drying, Cleanup, and Restoration -->
+    <CapabilitiesSection />
+
+    <!-- Section 4: How Emergency Water Damage Restoration Works -->
+    <ProcessSection />
+
+    <!-- Section 5: Why Los Angeles Property Owners Call ER Emergency Restoration -->
+    <WhyChooseUs />
+
+    <!-- Section 6: Water Damage Restoration for Los Angeles Homes and Businesses -->
+    <ServiceAreaSection />
+
+    <!-- FAQ Section (7 Questions & Answers) -->
+    <FaqSection />
+
+    <!-- Final CTA Section with Repeated Form -->
+    <FinalCtaSection />
+  </main>
+
+  <!-- Clean Footer -->
+  <Footer />
+</Layout>

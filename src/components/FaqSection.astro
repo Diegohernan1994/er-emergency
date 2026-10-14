@@ -1,0 +1,128 @@
+---
+// FaqSection.astro - Clean FAQ Accordion (7 items from briefing)
+const faqs = [
+  {
+    q: "How quickly can you get here for water damage?",
+    a: "ER Emergency Restoration is available 24/7 and can arrive on-site within hours, depending on your location and current conditions. Call (818) 575-6016 for immediate assistance."
+  },
+  {
+    q: "Do you handle water damage from burst pipes and leaks?",
+    a: "Yes. We help with water damage caused by burst pipes, leaking pipes, appliance failures, water heaters, air-conditioning units, overflows, storms, and other sources of water intrusion."
+  },
+  {
+    q: "Can you dry water inside walls, floors, and carpets?",
+    a: "Yes. Our water damage restoration process includes drying affected areas such as walls, floors, and carpets, along with moisture monitoring to identify water that may not be obvious."
+  },
+  {
+    q: "Can water damage lead to mold?",
+    a: "Moisture can create conditions that lead to mold growth. Acting quickly to extract water and dry affected areas is important. If mold-related concerns arise, ask our team about the appropriate next steps."
+  },
+  {
+    q: "Can you help with my insurance claim?",
+    a: "We provide documentation of water damage and restoration work that you can use when communicating with your insurance company. Your insurer determines coverage and claim decisions."
+  },
+  {
+    q: "How much does water damage restoration cost?",
+    a: "Every water-damage situation is different. We offer a free, no-obligation quote after reviewing the affected areas and the work required to restore your property."
+  },
+  {
+    q: "Do you restore the property after water extraction and drying?",
+    a: "Yes. ER Emergency Restoration provides cleanup, repair, and restoration services after the affected areas are addressed."
+  }
+];
+---
+
+<section class="py-section" style="background-color: #FFFFFF; padding: 70px 0;">
+  <div class="container">
+    
+    <!-- Header (Clean, 100% faithful to document) -->
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+      <h2 class="section-title">
+        Frequently Asked Questions
+      </h2>
+    </div>
+
+    <!-- Accordion List -->
+    <div class="faq-container">
+      {faqs.map((faq, index) => (
+        <details class="clean-faq-item" open={index === 0}>
+          <summary class="clean-faq-summary">
+            <span>{faq.q}</span>
+            <i class="fa-solid fa-plus faq-toggle-icon"></i>
+          </summary>
+          <div class="clean-faq-body">
+            <p>{faq.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- Emergency call footer notice -->
+    <div style="text-align: center; margin-top: 36px;">
+      <p style="font-size: 15px; color: #64748B; margin: 0;">
+        Have a question not listed here? Call our 24/7 team directly at 
+        <a href="tel:8185756016" style="color: #E62E2D; font-weight: 800; text-decoration: underline; margin-left: 4px;">
+          (818) 575-6016
+        </a>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .faq-container {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .clean-faq-item {
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    background: #FFFFFF;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+  .clean-faq-item:hover {
+    border-color: #E62E2D;
+  }
+  .clean-faq-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0C2340;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+  }
+  .clean-faq-summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-toggle-icon {
+    color: #E62E2D;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+  }
+  details[open] .faq-toggle-icon {
+    transform: rotate(45deg);
+  }
+  details[open] .clean-faq-summary {
+    border-bottom: 1px solid #F1F5F9;
+    background: #F8FAFC;
+  }
+  .clean-faq-body {
+    padding: 18px 22px;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #475569;
+    background: #FFFFFF;
+  }
+  .clean-faq-body p {
+    margin: 0;
+  }
+</style>

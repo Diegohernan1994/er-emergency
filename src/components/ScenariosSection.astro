@@ -1,0 +1,568 @@
+---
+// ScenariosSection.astro - Clean Scenarios Carousel with Arrows, Autoplay & Circular Dots
+const scenarios = [
+  {
+    title: "Burst or Leaking Pipes",
+    desc: "A broken or leaking pipe can send water into walls, floors, and rooms before you know it. We help extract the water, dry affected materials, and begin the restoration process.",
+    img: "/assets/images/restoration/extracting-water-carpet.webp",
+    alt: "Burst or Leaking Pipes"
+  },
+  {
+    title: "Appliance and Water Heater Leaks",
+    desc: "Washing machines, water heaters, air-conditioning units, and other appliances can create serious water damage. We assess the affected area and help you move from cleanup to restoration.",
+    img: "/assets/images/restoration/technician-cleaning-stain.webp",
+    alt: "Appliance and Water Heater Leaks"
+  },
+  {
+    title: "Flooded Rooms and Standing Water",
+    desc: "Whether water entered from a storm, overflow, plumbing issue, or another source, fast extraction and drying are essential. Our team is ready to help 24/7.",
+    img: "/assets/images/restoration/technician-operating-equipment.webp",
+    alt: "Flooded Rooms and Standing Water"
+  },
+  {
+    title: "Hidden Moisture After a Leak",
+    desc: "Water can remain behind walls, under flooring, or in other concealed spaces. We use advanced moisture detection and drying methods to address the areas affected by water—not only what you can see.",
+    img: "/assets/images/restoration/technician-documenting.webp",
+    alt: "Hidden Moisture After a Leak"
+  }
+];
+---
+
+<section class="scenarios-section" aria-label="Water Damage Scenarios">
+  <div class="container">
+    
+    <!-- Section Header (Clean, 100% faithful to document) -->
+    <div class="scenarios-header">
+      <h2 class="section-title">
+        Water Damage Help for the Emergencies You Did Not Plan For
+      </h2>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="scenarios-carousel-wrapper" id="scenariosCarousel">
+      
+      <!-- Previous Arrow Button -->
+      <button 
+        type="button" 
+        class="carousel-nav-btn prev-btn" 
+        id="scenariosPrevBtn" 
+        aria-label="Previous Emergency Scenario"
+      >
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
+
+      <!-- Carousel Viewport -->
+      <div class="scenarios-carousel-viewport" id="scenariosViewport">
+        <div class="scenarios-carousel-track" id="scenariosTrack">
+          {scenarios.map((card, idx) => (
+            <div class="scenarios-carousel-slide" data-slide-index={idx}>
+              <div class="notched-card">
+                <div class="card-media-wrap">
+                  <div class="media-img-frame">
+                    <img 
+                      src={card.img} 
+                      alt={card.alt} 
+                      class="card-img"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="notched-corner">
+                    <a href="#heroLeadFormCard" class="corner-action-btn" aria-label={`Get Help for ${card.title}`}>&#x2197;</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title">
+                    {card.title}
+                  </h3>
+                  <p class="card-text">
+                    {card.desc}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Next Arrow Button -->
+      <button 
+        type="button" 
+        class="carousel-nav-btn next-btn" 
+        id="scenariosNextBtn" 
+        aria-label="Next Emergency Scenario"
+      >
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </button>
+
+    </div>
+
+    <!-- Circular Navigation Dots -->
+    <div class="carousel-dots-row" id="scenariosDots" role="tablist" aria-label="Scenarios Navigation">
+      {scenarios.map((_, idx) => (
+        <button 
+          type="button" 
+          class={`carousel-dot ${idx === 0 ? 'active' : ''}`} 
+          data-dot-index={idx}
+          aria-label={`Go to Scenario ${idx + 1}`}
+          role="tab"
+          aria-selected={idx === 0 ? "true" : "false"}
+        ></button>
+      ))}
+    </div>
+
+    <!-- CTA Button (Exact copy from briefing) -->
+    <div class="scenarios-cta-wrap">
+      <a href="tel:8185756016" class="btn-red scenarios-btn">
+        <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+        <span>Call for Water Damage Help</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .scenarios-section {
+    background-color: #FFFFFF;
+    padding: 75px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scenarios-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 46px;
+  }
+
+  /* Carousel Outer Wrapper */
+  .scenarios-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 54px; /* Space for circular arrows */
+    box-sizing: border-box;
+  }
+
+  /* Carousel Viewport */
+  .scenarios-carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 8px;
+    touch-action: pan-y pinch-zoom;
+  }
+
+  /* Sliding Track */
+  .scenarios-carousel-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+    width: 100%;
+  }
+
+  /* Individual Slide */
+  .scenarios-carousel-slide {
+    flex: 0 0 calc((100% - 48px) / 3); /* 3 cards visible on desktop */
+    max-width: calc((100% - 48px) / 3);
+    box-sizing: border-box;
+  }
+
+  /* Navigation Arrow Buttons */
+  .carousel-nav-btn {
+    position: absolute;
+    top: 38%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    color: #0C2340;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 14px rgba(12, 35, 64, 0.08);
+    transition: all 0.25s ease;
+  }
+
+  .carousel-nav-btn:hover {
+    background-color: #E62E2D;
+    border-color: #E62E2D;
+    color: #FFFFFF;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 6px 18px rgba(230, 46, 45, 0.3);
+  }
+
+  .carousel-nav-btn.prev-btn {
+    left: 2px;
+  }
+
+  .carousel-nav-btn.next-btn {
+    right: 2px;
+  }
+
+  /* Notched Card Styling */
+  .notched-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: transparent;
+  }
+
+  .card-media-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    border-radius: 24px;
+  }
+
+  .media-img-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #0C2340;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .notched-card:hover .card-img {
+    transform: scale(1.05);
+  }
+
+  /* Notched Corner */
+  .notched-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 66px;
+    height: 66px;
+    background: #FFFFFF;
+    border-top-left-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+  }
+
+  .notched-corner::before {
+    content: "";
+    position: absolute;
+    top: -22px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    background: transparent;
+    border-bottom-right-radius: 22px;
+    box-shadow: 6px 6px 0 6px #FFFFFF;
+    pointer-events: none;
+  }
+
+  .notched-corner::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -22px;
+    width: 22px;
+    height: 22px;
+    background: transparent;
+    border-bottom-right-radius: 22px;
+    box-shadow: 6px 6px 0 6px #FFFFFF;
+    pointer-events: none;
+  }
+
+  .corner-action-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #F4F4F5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    color: #18181B;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+  }
+
+  .corner-action-btn:hover {
+    background: #E62E2D;
+    color: #FFFFFF;
+    transform: scale(1.08);
+  }
+
+  .card-body {
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: #0C2340;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .card-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #64748B;
+    margin-bottom: 12px;
+    flex-grow: 1;
+  }
+
+  /* Circular Navigation Dots Row */
+  .carousel-dots-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Strictly round */
+    background-color: #CBD5E1;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.28s ease;
+  }
+
+  .carousel-dot.active {
+    background-color: #E62E2D;
+    transform: scale(1.25);
+    box-shadow: 0 0 0 3px rgba(230, 46, 45, 0.2);
+  }
+
+  .carousel-dot:hover:not(.active) {
+    background-color: #94A3B8;
+  }
+
+  /* CTA Button */
+  .scenarios-cta-wrap {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .scenarios-btn {
+    font-size: 16px;
+    padding: 16px 36px;
+  }
+
+  /* Tablet: 2 cards visible */
+  @media (max-width: 1023px) {
+    .scenarios-carousel-slide {
+      flex: 0 0 calc((100% - 24px) / 2);
+      max-width: calc((100% - 24px) / 2);
+    }
+    .scenarios-carousel-wrapper {
+      padding: 0 48px;
+    }
+  }
+
+  /* Mobile: 1 card visible */
+  @media (max-width: 680px) {
+    .scenarios-section {
+      padding: 55px 0 65px;
+    }
+    .scenarios-header {
+      margin-bottom: 32px;
+    }
+    .scenarios-carousel-wrapper {
+      padding: 0 40px;
+    }
+    .scenarios-carousel-slide {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .card-media-wrap {
+      height: 200px;
+    }
+    .carousel-nav-btn {
+      width: 38px;
+      height: 38px;
+      font-size: 13px;
+      top: 34%;
+    }
+    .carousel-nav-btn.prev-btn {
+      left: -2px;
+    }
+    .carousel-nav-btn.next-btn {
+      right: -2px;
+    }
+  }
+</style>
+
+<script>
+  function initScenariosCarousel() {
+    const wrapper = document.getElementById('scenariosCarousel');
+    const track = document.getElementById('scenariosTrack');
+    const prevBtn = document.getElementById('scenariosPrevBtn');
+    const nextBtn = document.getElementById('scenariosNextBtn');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    if (!wrapper || !track || !prevBtn || !nextBtn) return;
+
+    const slides = track.querySelectorAll('.scenarios-carousel-slide');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    let autoPlayTimer: any = null;
+    const intervalTime = 4500; // 4.5 seconds
+
+    function getVisibleSlidesCount() {
+      const width = window.innerWidth;
+      if (width >= 1024) return 3;
+      if (width >= 681) return 2;
+      return 1;
+    }
+
+    function getMaxIndex() {
+      const visible = getVisibleSlidesCount();
+      return Math.max(0, totalSlides - visible);
+    }
+
+    function updateCarousel(index: number) {
+      const maxIdx = getMaxIndex();
+      if (index > maxIdx) {
+        currentIndex = 0;
+      } else if (index < 0) {
+        currentIndex = maxIdx;
+      } else {
+        currentIndex = index;
+      }
+
+      // Calculate sliding offset
+      const slide = slides[0] as HTMLElement;
+      if (slide) {
+        const slideWidth = slide.offsetWidth;
+        const gap = 24; // matches CSS gap
+        const offset = currentIndex * (slideWidth + gap);
+        track.style.transform = `translateX(-${offset}px)`;
+      }
+
+      // Update active dot
+      dots.forEach((dot, idx) => {
+        const isActive = idx === currentIndex || (currentIndex === maxIdx && idx >= maxIdx);
+        if (idx === currentIndex) {
+          dot.classList.add('active');
+          dot.setAttribute('aria-selected', 'true');
+        } else {
+          dot.classList.remove('active');
+          dot.setAttribute('aria-selected', 'false');
+        }
+      });
+    }
+
+    function nextSlide() {
+      const maxIdx = getMaxIndex();
+      if (currentIndex >= maxIdx) {
+        updateCarousel(0);
+      } else {
+        updateCarousel(currentIndex + 1);
+      }
+    }
+
+    function prevSlide() {
+      const maxIdx = getMaxIndex();
+      if (currentIndex <= 0) {
+        updateCarousel(maxIdx);
+      } else {
+        updateCarousel(currentIndex - 1);
+      }
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayTimer = setInterval(nextSlide, intervalTime);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) {
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = null;
+      }
+    }
+
+    // Button event listeners
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      startAutoPlay();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      startAutoPlay();
+    });
+
+    // Dot click listeners
+    dots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLElement;
+        const idx = parseInt(target.getAttribute('data-dot-index') || '0', 10);
+        updateCarousel(idx);
+        startAutoPlay();
+      });
+    });
+
+    // Pause on hover
+    wrapper.addEventListener('mouseenter', stopAutoPlay);
+    wrapper.addEventListener('mouseleave', startAutoPlay);
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    wrapper.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoPlay();
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diffX = touchStartX - touchEndX;
+      if (Math.abs(diffX) > 40) {
+        if (diffX > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+      startAutoPlay();
+    }, { passive: true });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      updateCarousel(currentIndex);
+    });
+
+    // Initial setup
+    updateCarousel(0);
+    startAutoPlay();
+  }
+
+  // Run on page load and on Astro view transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScenariosCarousel);
+  } else {
+    initScenariosCarousel();
+  }
+  document.addEventListener('astro:page-load', initScenariosCarousel);
+</script>

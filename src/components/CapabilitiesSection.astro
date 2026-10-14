@@ -1,0 +1,148 @@
+---
+// CapabilitiesSection.astro - Clean Capabilities Section (wateremoval.com inspired)
+---
+
+<section class="capabilities-section py-section" id="capabilitiesSection">
+  <div class="container">
+    <div class="capabilities-grid">
+      
+      <!-- Left Column: Copy & 7 Points -->
+      <div class="capabilities-copy">
+        <h2 class="section-title">
+          One Team for Extraction, Drying, Cleanup, and Restoration
+        </h2>
+
+        <p class="section-desc" style="margin-bottom: 14px;">
+          When your property is damaged by water, you need more than a quick cleanup. You need a clear path back to normal.
+        </p>
+
+        <p class="capabilities-lead-text">
+          ER Emergency Restoration provides comprehensive water damage restoration, including:
+        </p>
+
+        <div class="capabilities-list">
+          <div class="cap-item">
+            <i class="fa-solid fa-circle-check text-red"></i>
+            <span>Thorough assessment of the source and extent of water damage</span>
+          </div>
+          <div class="cap-item">
+            <i class="fa-solid fa-circle-check text-red"></i>
+            <span>Rapid water extraction</span>
+          </div>
+          <div class="cap-item">
+            <i class="fa-solid fa-circle-check text-red"></i>
+            <span>Drying for affected walls, floors, and carpets</span>
+          </div>
+          <div class="cap-item">
+            <i class="fa-solid fa-circle-check text-red"></i>
+            <span>Moisture monitoring for affected areas</span>
+          </div>
+          <div class="cap-item">
+            <i class="fa-solid fa-circle-check text-red"></i>
+            <span>Mold-conscious cleanup and remediation support when needed</span>
+          </div>
+          <div class="cap-item">
+            <i class="fa-solid fa-circle-check text-red"></i>
+            <span>Repair and restoration after the affected areas are addressed</span>
+          </div>
+          <div class="cap-item">
+            <i class="fa-solid fa-circle-check text-red"></i>
+            <span>Clear documentation of the damage and restoration process</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+          <a href="#heroLeadFormCard" class="btn-red">
+            <span>Request My Free Water Damage Quote</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Authentic Restoration Photo -->
+      <div class="capabilities-img-col">
+        <div class="img-frame">
+          <img 
+            src="/assets/images/restoration/technician-photographing-damage.webp" 
+            alt="One Team for Extraction, Drying, Cleanup, and Restoration" 
+            class="feature-img"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .capabilities-section {
+    position: relative;
+    padding: 80px 0;
+    background-color: #F8F9FA;
+    background-image: url('/assets/images/er/er-emergency-back.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top: 1px solid #E2E8F0;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .capabilities-lead-text {
+    font-weight: 700;
+    color: #0C2340;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .capabilities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cap-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1E293B;
+  }
+  .cap-item i {
+    font-size: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .img-frame {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(12, 35, 64, 0.1);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    background-color: #FFFFFF;
+  }
+  .feature-img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 991px) {
+    .capabilities-section {
+      padding: 50px 0;
+    }
+    .capabilities-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .feature-img {
+      height: 320px;
+    }
+  }
+</style>
