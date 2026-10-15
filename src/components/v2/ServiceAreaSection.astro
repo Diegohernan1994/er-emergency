@@ -6,6 +6,16 @@
   <div class="service-card">
     <!-- Left red box -->
     <div class="service-content">
+      <!-- Mobile Feature Photo (Visible on mobile only, placed above text per user instruction) -->
+      <div class="service-mobile-photo-wrap">
+        <img 
+          src="/assets/images/water/sink-leak-inspection.png" 
+          alt="ER Emergency Restoration technician inspecting water leak" 
+          class="service-mobile-photo"
+          loading="lazy"
+        />
+      </div>
+
       <h2 class="service-title">
         Water Damage Restoration for Los Angeles Homes and Businesses
       </h2>
@@ -146,15 +156,38 @@
     display: block;
   }
 
+  /* Mobile Feature Photo (Hidden on desktop, shown on mobile only) */
+  .service-mobile-photo-wrap {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     .service-area-section {
-      padding: 0 20px 60px;
+      padding: 0 16px 24px;
     }
     .service-content {
-      padding: 40px 24px;
+      padding: 28px 20px 36px;
+    }
+    .service-mobile-photo-wrap {
+      display: block;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      aspect-ratio: 16 / 10;
+      background-color: #0B1120;
+    }
+    .service-mobile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
     .map-container {
-      min-height: 280px;
+      min-height: 260px;
     }
   }
 </style>

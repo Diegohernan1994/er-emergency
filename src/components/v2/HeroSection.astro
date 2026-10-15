@@ -20,6 +20,18 @@ import LeadForm from './LeadForm.astro';
     <!-- Left Column: Copy & Value Proposition -->
     <div class="hero-content">
       
+      <!-- Mobile Hero Media (Visible only on mobile <= 991px, prominent at the top) -->
+      <div class="hero-mobile-media">
+        <div class="hero-mobile-img-frame">
+          <img 
+            src="/assets/images/water/water-extraction-living-room.png" 
+            alt="ER Emergency Restoration technician extracting flood water from floor" 
+            class="hero-mobile-img"
+            loading="eager"
+          />
+        </div>
+      </div>
+
       <!-- Trust Badge -->
       <div class="hero-status-badge">
         <span class="status-pulse-dot"></span>
@@ -44,21 +56,31 @@ import LeadForm from './LeadForm.astro';
       <div class="hero-benefits-list">
         <div class="benefit-item">
           <div class="benefit-icon-circle">
-            <i class="fa-solid fa-droplet"></i>
+            <svg class="benefit-lucide-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E62E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" />
+              <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" />
+            </svg>
           </div>
           <span class="benefit-text">Rapid water extraction and targeted drying</span>
         </div>
 
         <div class="benefit-item">
           <div class="benefit-icon-circle">
-            <i class="fa-solid fa-house"></i>
+            <svg class="benefit-lucide-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E62E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+              <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
           </div>
           <span class="benefit-text">Cleanup and restoration from one experienced team</span>
         </div>
 
         <div class="benefit-item">
           <div class="benefit-icon-circle">
-            <i class="fa-solid fa-file-circle-check"></i>
+            <svg class="benefit-lucide-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E62E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+              <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+              <path d="m9 15 2 2 4-4" />
+            </svg>
           </div>
           <span class="benefit-text">Damage documentation to support your insurance claim process</span>
         </div>
@@ -68,7 +90,9 @@ import LeadForm from './LeadForm.astro';
       <div class="hero-cta-wrap">
         <a href="tel:8185756016" class="call-pill hero-call-pill" aria-label="Call (818) 575-6016 for 24/7 Help">
           <div class="call-pill-icon">
-            <i class="fa-solid fa-phone"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
           </div>
           <div class="call-pill-text">
             <span class="call-pill-sub">Call Now for 24/7 Help</span>
@@ -263,15 +287,21 @@ import LeadForm from './LeadForm.astro';
     justify-content: flex-end;
   }
 
+  /* Mobile Media Frame (Hidden on Desktop) */
+  .hero-mobile-media {
+    display: none;
+  }
+
   /* Responsive Rules */
   @media (max-width: 1080px) {
     .hero-container {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 36px;
     }
 
     .hero-form-col {
       justify-content: center;
+      width: 100%;
     }
 
     .hero-headline {
@@ -279,23 +309,70 @@ import LeadForm from './LeadForm.astro';
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 991px) {
     .hero-section-v2 {
-      padding-top: 36px;
+      padding-top: 24px;
       padding-bottom: 90px;
+      background-color: var(--er-charcoal);
     }
 
+    /* On mobile: Hide full-bleed background so image and texts don't clash */
+    .hero-bg-wrapper {
+      display: none;
+    }
+
+    /* Prominent image at the top on mobile per user instruction */
+    .hero-mobile-media {
+      display: block;
+      margin-bottom: 22px;
+      width: 100%;
+    }
+
+    .hero-mobile-img-frame {
+      position: relative;
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      aspect-ratio: 4 / 3;
+      max-height: 380px;
+      background-color: #0B1120;
+    }
+
+    .hero-mobile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      display: block;
+    }
+
+    .hero-content {
+      padding-right: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
     .hero-headline {
-      font-size: 32px;
+      font-size: clamp(28px, 6.8vw, 36px);
       line-height: 1.1;
+      margin-top: 18px;
     }
 
     .hero-lead {
-      font-size: 17px;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-top: 14px;
+    }
+
+    .hero-subtext {
+      font-size: 15px;
+      line-height: 1.5;
     }
 
     .benefit-text {
-      font-size: 16px;
+      font-size: 15px;
     }
 
     .benefit-icon-circle {
