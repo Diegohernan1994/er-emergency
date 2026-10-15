@@ -1,0 +1,252 @@
+---
+// UrgencySection.astro - "Water Damage Moves Fast. So Should Your Response."
+---
+
+<section class="urgency-section-v2 er-texture">
+  <!-- Top Red Wave Divider -->
+  <svg class="wave-divider wave-top" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,55 C300,10 560,95 880,45 C1120,10 1300,60 1440,35 L1440,100 L0,100 Z" fill="#E62E2E" fill-opacity=".45"></path>
+    <path d="M0,80 C260,50 520,98 800,70 C1080,42 1280,92 1440,66 L1440,100 L0,100 Z" fill="#E62E2E"></path>
+  </svg>
+
+  <div class="container urgency-container">
+    
+    <!-- Left Column: Image with Overlapping 24/7 Badge -->
+    <div class="urgency-visual-wrapper">
+      <div class="urgency-img-box">
+        <img 
+          src="/assets/images/water/structural-drying-room.png" 
+          alt="Structural drying and moisture extraction in residential room" 
+          class="urgency-photo"
+          loading="lazy"
+        />
+      </div>
+      <div class="urgency-floating-badge">
+        <div class="badge-big-hours">24/7</div>
+        <div class="badge-caption">On-site within hours to help limit further damage</div>
+      </div>
+    </div>
+
+    <!-- Right Column: Copy & Checklist -->
+    <div class="urgency-content">
+      <h2 class="urgency-heading">
+        Water Damage Moves Fast. <span class="highlight-red-text">So Should Your Response.</span>
+      </h2>
+
+      <p class="urgency-lead">
+        Water can travel quickly through carpet, flooring, drywall, and walls. The longer moisture remains, the greater the chance of additional property damage and mold-related issues.
+      </p>
+
+      <p class="urgency-subtext">
+        ER Emergency Restoration responds with the equipment and experience needed to extract water, dry affected areas, identify hidden moisture, and begin restoring your property.
+      </p>
+
+      <div class="urgency-checklist">
+        <div class="check-row">
+          <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+          <span>Remove standing water as quickly as possible</span>
+        </div>
+        <div class="check-row">
+          <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+          <span>Dry affected floors, walls, carpet, and structural materials</span>
+        </div>
+        <div class="check-row">
+          <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+          <span>Identify moisture that may not be visible at first glance</span>
+        </div>
+        <div class="check-row">
+          <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+          <span>Document damage and restoration work for your records</span>
+        </div>
+      </div>
+
+      <div class="urgency-btn-wrap">
+        <a href="#hero-lead-form" class="btn-primary">
+          <span>Get My Emergency Assessment</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Bottom White Wave Divider -->
+  <svg class="wave-divider wave-bottom" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,40 C240,92 480,4 720,42 C960,80 1200,8 1440,48 L1440,100 L0,100 Z" fill="#FFFFFF" fill-opacity=".45"></path>
+    <path d="M0,72 C220,30 430,96 720,62 C1010,26 1230,92 1440,58 L1440,100 L0,100 Z" fill="#FFFFFF"></path>
+  </svg>
+</section>
+
+<style>
+  .urgency-section-v2 {
+    position: relative;
+    padding: 130px 0 140px;
+    overflow: hidden;
+  }
+
+  .urgency-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+  }
+
+  .urgency-visual-wrapper {
+    position: relative;
+    padding-bottom: 40px;
+    padding-right: 40px;
+  }
+
+  .urgency-img-box {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  }
+
+  .urgency-photo {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .urgency-floating-badge {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: var(--er-red);
+    color: #FFFFFF;
+    padding: 24px 26px;
+    border-radius: 10px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  }
+
+  .badge-big-hours {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 46px;
+    line-height: 1;
+  }
+
+  .badge-caption {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.35;
+    margin-top: 8px;
+  }
+
+  .urgency-heading {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.1;
+    margin: 0;
+    color: var(--er-ink);
+    text-wrap: balance;
+  }
+
+  .highlight-red-text {
+    color: var(--er-red);
+  }
+
+  .urgency-lead {
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 22px 0 0;
+    color: var(--er-ink);
+  }
+
+  .urgency-subtext {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 14px 0 0;
+    color: var(--er-text-muted);
+  }
+
+  .urgency-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 26px 0 32px;
+  }
+
+  .check-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--er-ink);
+    font-weight: 500;
+  }
+
+  .check-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: var(--er-red);
+    font-size: 18px;
+    margin-top: 2px;
+  }
+
+  .urgency-btn-wrap {
+    margin-top: 10px;
+  }
+
+  @media (max-width: 992px) {
+    .urgency-container {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .urgency-photo {
+      height: 380px;
+    }
+
+    .urgency-heading {
+      font-size: 32px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .urgency-section-v2 {
+      padding: 100px 0 110px;
+    }
+
+    .urgency-visual-wrapper {
+      padding-right: 20px;
+      padding-bottom: 30px;
+    }
+
+    .urgency-photo {
+      height: 280px;
+    }
+
+    .urgency-floating-badge {
+      width: 200px;
+      padding: 18px 20px;
+    }
+
+    .badge-big-hours {
+      font-size: 36px;
+    }
+
+    .badge-caption {
+      font-size: 13px;
+    }
+
+    .urgency-heading {
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .check-row {
+      font-size: 15px;
+    }
+  }
+</style>

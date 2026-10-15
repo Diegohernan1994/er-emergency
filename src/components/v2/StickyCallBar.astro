@@ -1,0 +1,63 @@
+---
+// StickyCallBar.astro - Mobile sticky emergency call bar
+---
+
+<div class="sticky-call-bar-wrapper">
+  <a href="tel:8185756016" class="sticky-call-bar">
+    <span class="icon-pulse">
+      <i class="fa-solid fa-phone"></i>
+    </span>
+    <span class="call-text">Call Now for 24/7 Help: <strong>(818) 575-6016</strong></span>
+  </a>
+</div>
+
+<style>
+  .sticky-call-bar-wrapper {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .sticky-call-bar-wrapper {
+      display: block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 999;
+      background: var(--er-red);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .sticky-call-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 60px;
+      padding: 0 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .icon-pulse {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .call-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+</style>

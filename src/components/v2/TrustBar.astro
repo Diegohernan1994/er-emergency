@@ -1,0 +1,122 @@
+---
+// TrustBar.astro - High-contrast red trust bar with 4 key guarantees
+const items = [
+  { icon: "fa-clock", text: "24/7 Emergency Response" },
+  { icon: "fa-shield-halved", text: "Licensed & Insured" },
+  { icon: "fa-award", text: "10 Years of Restoration Experience" },
+  { icon: "fa-circle-check", text: "Complete Cleanup & Restoration" }
+];
+---
+
+<div class="trust-bar-v2">
+  <!-- Desktop: 100% untouched layout -->
+  <div class="container trust-container desktop-trust">
+    {items.map((item) => (
+      <div class="trust-item">
+        <i class={`fa-solid ${item.icon}`}></i>
+        <span>{item.text}</span>
+      </div>
+    ))}
+  </div>
+
+  <!-- Mobile Only: constant infinite marquee -->
+  <div class="mobile-marquee-wrap mobile-trust" aria-hidden="true">
+    <div class="marquee-track">
+      {[...items, ...items, ...items].map((item) => (
+        <div class="marquee-item">
+          <i class={`fa-solid ${item.icon}`}></i>
+          <span>{item.text}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .trust-bar-v2 {
+    background-color: var(--er-red);
+    color: #FFFFFF;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+  }
+
+  /* Desktop Styles (Unchanged) */
+  .desktop-trust {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px 48px;
+    padding: 18px 24px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+  }
+
+  .trust-item i {
+    font-size: 20px;
+  }
+
+  .mobile-trust {
+    display: none;
+  }
+
+  /* Mobile: Constant infinite marquee */
+  @media (max-width: 768px) {
+    .desktop-trust {
+      display: none !important;
+    }
+
+    .mobile-trust {
+      display: block !important;
+      width: 100%;
+      overflow: hidden;
+      padding: 13px 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 20s linear infinite;
+      will-change: transform;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 14px;
+      color: #FFFFFF;
+      padding: 0 24px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .marquee-item i {
+      font-size: 16px;
+    }
+  }
+
+  @keyframes marqueeScroll {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-33.3333%, 0, 0);
+    }
+  }
+</style>

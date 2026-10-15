@@ -1,0 +1,71 @@
+/* tokens.css - ER Emergency Restoration Design System v2 Tokens */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  /* Brand Colors */
+  --er-red: #E62E2E;
+  --er-red-logo: #ED3237;
+  --er-red-hover: #CC2424;
+  --er-red-deep: #801A1B;
+  --er-red-ember: #79322C;
+  --er-red-soft: #FDECEC;
+
+  /* Grays & Neutrals */
+  --er-gray: #656668;
+  --er-gray-light: #B5B6B9;
+  --er-black: #000000;
+  --er-ink: #111111;
+  --er-charcoal: #1F1F1F;
+  --er-ink-soft: #24222B;
+  --er-white: #FFFFFF;
+  --er-cream: #F7F2EC;
+  --er-cream-light: #FCF9F4;
+  --er-sand: #F2EDE5;
+
+  /* Text & Lines */
+  --er-text-muted: #6B6B6B;
+  --er-text-faint: #8C8C8C;
+  --er-line: #8A8A8A;
+  --er-line-soft: #E2DED8;
+  --er-star: #F6B83A;
+  --er-green: #3DDC84;
+
+  /* Semantic Aliases */
+  --text-heading: var(--er-black);
+  --text-body: var(--er-ink);
+  --text-muted: var(--er-text-muted);
+  --text-accent: var(--er-red);
+  --text-on-dark: var(--er-white);
+  --text-on-accent: var(--er-white);
+
+  --surface-page: var(--er-cream);
+  --surface-page-alt: var(--er-white);
+  --surface-card: var(--er-white);
+  --surface-card-warm: var(--er-sand);
+  --surface-accent: var(--er-red);
+  --surface-dark: var(--er-charcoal);
+
+  --border-card: var(--er-line);
+  --border-accent: var(--er-red);
+  --border-subtle: var(--er-line-soft);
+
+  /* Overlays & Shadows */
+  --overlay-dark: rgba(20, 20, 20, 0.72);
+  --overlay-hero: linear-gradient(90deg, rgba(10, 10, 10, 0.86) 0%, rgba(10, 10, 10, 0.7) 50%, rgba(10, 10, 10, 0.35) 100%);
+  --overlay-red: rgba(128, 26, 27, 0.82);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.16);
+  --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.18);
+  --shadow-text: 0 2px 8px rgba(0, 0, 0, 0.6);
+
+  /* Typography */
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Figtree', system-ui, -apple-system, sans-serif;
+
+  /* Transitions */
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s var(--ease-standard);
+  --transition-normal: 0.3s var(--ease-standard);
+}

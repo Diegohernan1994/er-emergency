@@ -1,0 +1,243 @@
+---
+// FinalCtaSection.astro - Stop Water Damage From Getting Worse
+import LeadForm from './LeadForm.astro';
+---
+
+<section class="final-cta-section">
+  <!-- Top wave inverted from cream -->
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" class="top-wave">
+    <path d="M0,55 C300,10 560,95 880,45 C1120,10 1300,60 1440,35 L1440,100 L0,100 Z" fill="#F7F2EC" fill-opacity=".45"></path>
+    <path d="M0,80 C260,50 520,98 800,70 C1080,42 1280,92 1440,66 L1440,100 L0,100 Z" fill="#F7F2EC"></path>
+  </svg>
+
+  <!-- Background Photo -->
+  <div class="bg-layer">
+    <img
+      src="/assets/images/water/water-extraction-living-room.png"
+      alt="ER Restoration Technician in Action"
+      class="bg-image"
+      loading="lazy"
+    />
+    <div class="bg-overlay"></div>
+  </div>
+
+  <div class="final-container">
+    <div class="final-text-col">
+      <h2 class="final-title">
+        <span class="highlight">Stop Water Damage From Getting Worse.</span> Get 24/7 Help Now.
+      </h2>
+      <p class="final-desc">
+        Call ER Emergency Restoration now for rapid water damage help in Los Angeles. We are ready to respond, extract water, dry affected areas, and help you begin restoring your property.
+      </p>
+
+      <div class="cta-actions">
+        <a href="tel:8185756016" class="btn-primary">
+          <i class="fa-solid fa-phone"></i>
+          Call Now: (818) 575-6016
+        </a>
+        <a href="#wd-final-form" class="btn-outline">
+          Request My Emergency Help
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="badge-row">
+        <div class="badge-247">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span class="badge-num">24/7</span>
+          <span class="badge-label">RESPONSE</span>
+        </div>
+        <p class="badge-text">
+          Available 24/7. If water is actively flowing or your property is flooded, call <strong>(818) 575-6016</strong> now.
+        </p>
+      </div>
+    </div>
+
+    <!-- Final Lead Form -->
+    <div id="wd-final-form" class="final-form-col">
+      <LeadForm formId="final-lead-form" />
+    </div>
+  </div>
+
+  <!-- Bottom wave to light cream footer -->
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" class="bottom-wave">
+    <path d="M0,40 C240,92 480,4 720,42 C960,80 1200,8 1440,48 L1440,100 L0,100 Z" fill="#FCF9F4" fill-opacity=".45"></path>
+    <path d="M0,72 C220,30 430,96 720,62 C1010,26 1230,92 1440,58 L1440,100 L0,100 Z" fill="#FCF9F4"></path>
+  </svg>
+</section>
+
+<style>
+  .final-cta-section {
+    position: relative;
+    background: #1F1F1F;
+    padding: 130px 24px 140px;
+    overflow: hidden;
+  }
+
+  .top-wave {
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 100%;
+    height: 84px;
+    display: block;
+    pointer-events: none;
+    z-index: 2;
+    transform: scaleY(-1);
+  }
+
+  .bottom-wave {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 84px;
+    display: block;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .bg-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 15, 15, 0.84);
+  }
+
+  .final-container {
+    position: relative;
+    z-index: 3;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .final-text-col {
+    color: #ffffff;
+  }
+
+  .final-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(32px, 4.5vw, 46px);
+    line-height: 1.1;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .highlight {
+    color: var(--er-red);
+  }
+
+  .final-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 22px 0 0;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 40px;
+  }
+
+  .badge-247 {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid var(--er-red);
+    box-shadow: 0 0 0 3px #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #111111;
+    flex-shrink: 0;
+  }
+
+  .badge-247 i {
+    font-size: 18px;
+    color: #222222;
+  }
+
+  .badge-num {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 2px;
+  }
+
+  .badge-label {
+    font-family: var(--font-heading);
+    font-size: 9px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--er-red);
+    letter-spacing: 0.05em;
+  }
+
+  .badge-text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 380px;
+    margin: 0;
+  }
+
+  .final-form-col {
+    max-width: 480px;
+    width: 100%;
+    justify-self: end;
+  }
+
+  @media (max-width: 1024px) {
+    .final-container {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .final-form-col {
+      justify-self: center;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .final-cta-section {
+      padding: 90px 20px 100px;
+    }
+    .cta-actions {
+      flex-direction: column;
+    }
+    .cta-actions a {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+</style>

@@ -1,0 +1,72 @@
+---
+// Footer.astro - Clean, centered footer with logo and copyright
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <a href="/" class="footer-logo-link" aria-label="ER Emergency Restoration Home">
+      <img
+        src="/assets/logos/er-logo-horizontal-raster.png"
+        alt="ER Emergency Restoration"
+        class="footer-logo"
+        width="260"
+        height="84"
+      />
+    </a>
+    <div class="footer-copyright">
+      &copy; {year} ER Emergency Restoration. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--er-cream-light);
+    padding: 56px 20px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-logo-link {
+    display: inline-block;
+    transition: opacity var(--dur-fast);
+  }
+
+  .footer-logo-link:hover {
+    opacity: 0.85;
+  }
+
+  .footer-logo {
+    height: 84px;
+    width: auto;
+    display: inline-block;
+    mix-blend-mode: multiply;
+  }
+
+  .footer-copyright {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    color: #444444;
+    margin-top: 24px;
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 768px) {
+    .site-footer {
+      padding: 44px 16px 80px; /* extra bottom padding for mobile sticky call bar */
+    }
+    .footer-logo {
+      height: 64px;
+    }
+  }
+</style>

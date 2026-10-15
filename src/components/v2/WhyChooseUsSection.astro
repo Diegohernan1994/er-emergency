@@ -1,0 +1,224 @@
+---
+// WhyChooseUsSection.astro - Why Los Angeles Property Owners Call ER Emergency Restoration
+---
+
+<section class="why-section">
+  <div class="why-container">
+    <h2 class="section-title">
+      Why Los Angeles Property Owners Call <span class="highlight">ER Emergency Restoration</span>
+    </h2>
+
+    <div class="cards-grid">
+      <!-- Card 1 -->
+      <div class="feature-card">
+        <div class="icon-circle">
+          <i class="fa-regular fa-clock"></i>
+        </div>
+        <h3 class="card-title">Available 24/7</h3>
+        <p class="card-desc">
+          Water damage does not wait for business hours. Our team is available day or night when you need help.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="feature-card">
+        <div class="icon-circle">
+          <i class="fa-solid fa-paper-plane"></i>
+        </div>
+        <h3 class="card-title">Fast, Professional Response</h3>
+        <p class="card-desc">
+          We can arrive on-site within hours to assess the situation and begin the work needed to mitigate water damage.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="feature-card">
+        <div class="icon-circle">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h3 class="card-title">Licensed and Insured</h3>
+        <p class="card-desc">
+          Your property is handled by a licensed and insured restoration team.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="feature-card">
+        <div class="icon-circle">
+          <i class="fa-solid fa-house"></i>
+        </div>
+        <h3 class="card-title">Full-Service Restoration</h3>
+        <p class="card-desc">
+          From water extraction and drying to cleanup, repair, and restoration, we provide a complete path forward.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="feature-card">
+        <div class="icon-circle">
+          <i class="fa-solid fa-comments"></i>
+        </div>
+        <h3 class="card-title">Clear Communication</h3>
+        <p class="card-desc">
+          We explain what we find, what needs to happen next, and how the restoration process moves forward.
+        </p>
+      </div>
+    </div>
+
+    <div class="why-cta">
+      <a href="tel:8185756016" class="btn-primary">
+        <i class="fa-solid fa-phone"></i>
+        Call Now for 24/7 Water Damage Help
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-section {
+    background: #ffffff;
+    padding: 96px 24px;
+  }
+
+  .why-container {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 820px;
+    text-wrap: balance;
+    color: var(--er-black);
+  }
+
+  .highlight {
+    color: var(--er-red);
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+    gap: 18px;
+    margin-top: 52px;
+  }
+
+  .feature-card {
+    border: 1px solid var(--er-red);
+    border-radius: 10px;
+    padding: 40px 20px 34px;
+    text-align: center;
+    background: #ffffff;
+    transition: transform var(--dur-fast), box-shadow var(--dur-fast);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(230, 46, 46, 0.08);
+  }
+
+  .icon-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 3px solid var(--er-red);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: var(--er-red);
+    font-size: 28px;
+  }
+
+  .card-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 19px;
+    margin-top: 24px;
+    color: #111111;
+    line-height: 1.25;
+  }
+
+  .card-desc {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #6B6B6B;
+    margin: 10px 0 0;
+  }
+
+  .why-cta {
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .why-section {
+      padding: 56px 14px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .cards-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .feature-card {
+      padding: 24px 12px 20px;
+      border-radius: 8px;
+    }
+
+    /* Last card spans full width across both columns so it's not alone */
+    .feature-card:last-child {
+      grid-column: 1 / -1;
+      padding: 26px 18px 22px;
+    }
+
+    .feature-card:last-child .card-desc {
+      max-width: 480px;
+      margin: 8px auto 0;
+    }
+
+    .icon-circle {
+      width: 54px;
+      height: 54px;
+      border-width: 2px;
+      font-size: 20px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      margin-top: 14px;
+      line-height: 1.25;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      line-height: 1.45;
+      margin-top: 8px;
+    }
+
+    .why-cta {
+      margin-top: 32px;
+    }
+
+    .why-cta a {
+      font-size: 14px;
+      padding: 14px 18px;
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      line-height: 1.3;
+    }
+  }
+</style>

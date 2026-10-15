@@ -1,0 +1,160 @@
+---
+// ServiceAreaSection.astro - Water Damage Restoration for Los Angeles Homes and Businesses
+---
+
+<section class="service-area-section">
+  <div class="service-card">
+    <!-- Left red box -->
+    <div class="service-content">
+      <h2 class="service-title">
+        Water Damage Restoration for Los Angeles Homes and Businesses
+      </h2>
+      <p class="service-desc">
+        If you need emergency water damage cleanup in Los Angeles or a nearby community, contact ER Emergency Restoration now. We are available 24/7 to help property owners respond to leaks, flooding, burst pipes, appliance failures, and other water emergencies.
+      </p>
+
+      <div class="phone-block">
+        <div class="phone-label">Emergency Phone</div>
+        <a href="tel:8185756016" class="phone-number">(818) 575-6016</a>
+      </div>
+
+      <div>
+        <a href="#wd-form" class="btn-help">
+          Request My Emergency Help
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right map image -->
+    <div class="map-container">
+      <img
+        src="/assets/images/water/los-angeles-service-map.png"
+        alt="ER Emergency Restoration Los Angeles Service Area Map"
+        class="map-image"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-area-section {
+    background: #ffffff;
+    padding: 0 24px 96px;
+  }
+
+  .service-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  }
+
+  .service-content {
+    background: var(--er-red);
+    color: #ffffff;
+    padding: 56px 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .service-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(26px, 3.5vw, 36px);
+    line-height: 1.15;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .service-desc {
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 20px 0 0;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .phone-block {
+    margin: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    padding-top: 22px;
+  }
+
+  .phone-label {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .phone-number {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(30px, 4vw, 40px);
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 4px;
+    transition: opacity var(--dur-fast);
+  }
+
+  .phone-number:hover {
+    opacity: 0.9;
+  }
+
+  .btn-help {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    color: var(--er-red);
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 30px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 17px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    transition: background-color var(--dur-fast), transform var(--dur-fast);
+  }
+
+  .btn-help:hover {
+    background: #FDECEC;
+    transform: translateY(-2px);
+  }
+
+  .map-container {
+    position: relative;
+    min-height: 420px;
+    background: #F2EDE5;
+  }
+
+  .map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .service-area-section {
+      padding: 0 20px 60px;
+    }
+    .service-content {
+      padding: 40px 24px;
+    }
+    .map-container {
+      min-height: 280px;
+    }
+  }
+</style>

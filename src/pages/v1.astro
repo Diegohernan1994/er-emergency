@@ -1,0 +1,38 @@
+---
+// v1.astro - Clean Landing Page for ER Emergency Restoration (Water Damage Restoration v1)
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroSection from '../components/HeroSection.astro';
+import TrustBar from '../components/TrustBar.astro';
+import UrgencySection from '../components/UrgencySection.astro';
+import ScenariosSection from '../components/ScenariosSection.astro';
+import CapabilitiesSection from '../components/CapabilitiesSection.astro';
+import ProcessSection from '../components/ProcessSection.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import ServiceAreaSection from '../components/ServiceAreaSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import FinalCtaSection from '../components/FinalCtaSection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="24/7 Water Damage Restoration Services | ER Emergency Restoration"
+  description="Flooded room, burst pipe, or active leak? ER Emergency Restoration provides rapid water extraction, structural drying, cleanup, and restoration for homes and businesses in SoCal. Available 24/7."
+>
+  <Header />
+
+  <main>
+    <HeroSection />
+    <TrustBar />
+    <UrgencySection />
+    <ScenariosSection />
+    <CapabilitiesSection />
+    <ProcessSection />
+    <WhyChooseUs />
+    <ServiceAreaSection />
+    <FaqSection />
+    <FinalCtaSection />
+  </main>
+
+  <Footer />
+</Layout>

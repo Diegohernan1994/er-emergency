@@ -1,0 +1,215 @@
+---
+// OneTeamSection.astro - "One Team for Extraction, Drying, Cleanup, and Restoration"
+const services = [
+  "Thorough assessment of the source and extent of water damage",
+  "Rapid water extraction",
+  "Drying for affected walls, floors, and carpets",
+  "Moisture monitoring for affected areas",
+  "Mold-conscious cleanup and remediation support when needed",
+  "Repair and restoration after the affected areas are addressed",
+  "Clear documentation of the damage and restoration process"
+];
+---
+
+<section class="one-team-section-v2">
+  <!-- Top White Wave Divider -->
+  <svg class="wave-divider wave-top" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,55 C300,10 560,95 880,45 C1120,10 1300,60 1440,35 L1440,100 L0,100 Z" fill="#FFFFFF" fill-opacity=".45"></path>
+    <path d="M0,80 C260,50 520,98 800,70 C1080,42 1280,92 1440,66 L1440,100 L0,100 Z" fill="#FFFFFF"></path>
+  </svg>
+
+  <!-- Background Photo & Dark Overlay -->
+  <div class="one-team-bg-wrapper">
+    <img 
+      src="/assets/images/water/drywall-repair-finish.png" 
+      alt="ER technicians completing drywall repair and restoration" 
+      class="one-team-bg-img"
+      loading="lazy"
+    />
+    <div class="one-team-overlay"></div>
+  </div>
+
+  <div class="container-narrow one-team-container">
+    
+    <!-- Title & Lead -->
+    <h2 class="one-team-heading">
+      <span class="highlight-red-text">One Team</span> for Extraction, Drying, Cleanup, and Restoration
+    </h2>
+
+    <p class="one-team-lead">
+      When your property is damaged by water, you need more than a quick cleanup. You need a clear path back to normal.
+    </p>
+
+    <!-- Services Box -->
+    <div class="one-team-box">
+      <div class="box-tagline">
+        ER Emergency Restoration provides comprehensive water damage restoration, including:
+      </div>
+
+      <div class="services-two-col-grid">
+        {services.map((item) => (
+          <div class="service-item">
+            <div class="service-check-icon">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="one-team-cta">
+      <a href="#hero-lead-form" class="btn-primary">
+        <span>Request My Free Water Damage Quote</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Bottom Cream Wave Divider -->
+  <svg class="wave-divider wave-bottom" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,40 C240,92 480,4 720,42 C960,80 1200,8 1440,48 L1440,100 L0,100 Z" fill="#F7F2EC" fill-opacity=".45"></path>
+    <path d="M0,72 C220,30 430,96 720,62 C1010,26 1230,92 1440,58 L1440,100 L0,100 Z" fill="#F7F2EC"></path>
+  </svg>
+</section>
+
+<style>
+  .one-team-section-v2 {
+    position: relative;
+    background-color: var(--er-charcoal);
+    padding: 130px 0 140px;
+    overflow: hidden;
+  }
+
+  .one-team-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .one-team-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .one-team-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(25, 25, 25, 0.88);
+  }
+
+  .one-team-container {
+    position: relative;
+    z-index: 5;
+    color: #FFFFFF;
+    text-align: center;
+  }
+
+  .one-team-heading {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.15;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .highlight-red-text {
+    color: var(--er-red);
+  }
+
+  .one-team-lead {
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 18px auto 0;
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .one-team-box {
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    margin: 40px 0;
+    padding: 28px 12px 34px;
+    text-align: left;
+  }
+
+  .box-tagline {
+    text-align: center;
+    color: var(--er-red);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .services-two-col-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+    gap: 16px 40px;
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .service-check-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: var(--er-red);
+    font-size: 18px;
+    margin-top: 2px;
+  }
+
+  .one-team-cta {
+    display: inline-block;
+  }
+
+  @media (max-width: 768px) {
+    .one-team-section-v2 {
+      padding: 100px 0 110px;
+    }
+
+    .one-team-heading {
+      font-size: 28px;
+    }
+
+    .one-team-lead {
+      font-size: 16px;
+    }
+
+    .services-two-col-grid {
+      grid-template-columns: 1fr;
+      font-size: 15px;
+      gap: 14px;
+    }
+
+    .box-tagline {
+      font-size: 13px;
+    }
+
+    .one-team-cta {
+      display: block;
+      width: 100%;
+    }
+
+    .one-team-cta a {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+</style>

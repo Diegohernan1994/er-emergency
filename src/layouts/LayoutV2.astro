@@ -1,0 +1,38 @@
+---
+// LayoutV2.astro - Base Layout for ER Emergency Restoration v2
+import '../styles/global-v2.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "24/7 Water Damage Restoration Services | ER Emergency Restoration",
+  description = "Rapid water extraction, structural drying, and complete restoration in Los Angeles. Licensed & insured, available 24/7. Call (818) 575-6016."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+    
+    <!-- FontAwesome 6 CDN for robust iconography -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" 
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

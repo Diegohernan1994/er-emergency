@@ -1,0 +1,209 @@
+/* global.css - Global Styles & Reset for ER Emergency Restoration v2 */
+@import './tokens-v2.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  color: var(--er-ink);
+  background-color: #FFFFFF;
+  line-height: 1.5;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Texture Pattern */
+.er-texture {
+  background-color: var(--er-cream);
+  background-image: url('/assets/textures/cream-paper-tile.png');
+  background-size: 360px 360px;
+}
+
+/* Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.container-narrow {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* Base Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--er-red);
+  color: #FFFFFF !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 15px 32px;
+  border-radius: 999px;
+  border: none;
+  box-shadow: 0 4px 16px rgba(230, 46, 46, 0.3);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--er-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(230, 46, 46, 0.4);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  color: #FFFFFF !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 14px 32px;
+  border-radius: 999px;
+  border: 2px solid #FFFFFF;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.btn-outline:hover {
+  background-color: #FFFFFF;
+  color: var(--er-ink) !important;
+  transform: translateY(-2px);
+}
+
+/* Call Pill */
+.call-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: #FFFFFF;
+  color: var(--er-ink) !important;
+  text-decoration: none !important;
+  padding: 10px 28px 10px 12px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-fast);
+}
+
+.call-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+}
+
+.call-pill-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--er-red);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px var(--er-red-soft);
+}
+
+.call-pill-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.call-pill-sub {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--er-red);
+}
+
+.call-pill-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--er-ink);
+}
+
+/* Wave Dividers */
+.wave-divider {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 84px;
+  display: block;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.wave-divider.wave-bottom {
+  bottom: -1px;
+}
+
+.wave-divider.wave-top {
+  top: -1px;
+  transform: scaleY(-1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container, .container-narrow {
+    padding: 0 16px;
+  }
+  .call-pill-num {
+    font-size: 20px;
+  }
+  .call-pill-icon {
+    width: 44px;
+    height: 44px;
+  }
+  .btn-primary, .btn-outline {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+}

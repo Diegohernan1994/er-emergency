@@ -1,0 +1,473 @@
+---
+// ProcessSection.astro - How Emergency Water Damage Restoration Works
+const steps = [
+  {
+    num: 1,
+    title: "Call Us 24/7",
+    desc: "Tell us what happened, where the water is coming from, and where your property is located. If the situation is urgent, call (818) 575-6016 for immediate help.",
+    isRedCircle: false
+  },
+  {
+    num: 2,
+    title: "We Mitigate and Dry the Damage",
+    desc: "Our team assesses the affected areas, extracts water, begins drying, and works to address moisture that could create further problems.",
+    isRedCircle: false
+  },
+  {
+    num: 3,
+    title: "We Restore Your Property",
+    desc: "Once the affected areas are addressed, we help move your property through cleanup, repair, and restoration, with documentation along the way.",
+    isRedCircle: true
+  }
+];
+---
+
+<section class="process-section er-texture">
+  <div class="process-container">
+    <h2 class="section-title">
+      How Emergency Water Damage <span class="highlight">Restoration Works</span>
+    </h2>
+
+    <!-- Desktop Grid (100% UNTOUCHED) -->
+    <div class="steps-wrapper desktop-steps">
+      <div class="dashed-line" aria-hidden="true"></div>
+
+      <div class="steps-grid">
+        {steps.map(step => (
+          <div class="step-card">
+            <div class={`step-circle ${step.isRedCircle ? 'step-circle-red' : 'step-circle-white'}`}>
+              {step.num}
+            </div>
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-desc">
+              {step.num === 1 ? (
+                <>Tell us what happened, where the water is coming from, and where your property is located. If the situation is urgent, call <strong>(818) 575-6016</strong> for immediate help.</>
+              ) : (
+                step.desc
+              )}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mobile Carousel Slider (SOLO MÓVIL) -->
+    <div class="mobile-process-carousel mobile-steps" id="processCarousel">
+      <!-- Arrow Controls -->
+      <button class="carousel-btn prev-btn" id="processPrev" type="button" aria-label="Previous step">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="processTrack">
+          {steps.map((step, idx) => (
+            <div class="carousel-slide" data-slide-index={idx}>
+              <div class="step-card mobile-step-card">
+                <div class={`step-circle ${step.isRedCircle ? 'step-circle-red' : 'step-circle-white'}`}>
+                  {step.num}
+                </div>
+                <h3 class="step-title">{step.title}</h3>
+                <p class="step-desc">
+                  {step.num === 1 ? (
+                    <>Tell us what happened, where the water is coming from, and where your property is located. If the situation is urgent, call <strong>(818) 575-6016</strong> for immediate help.</>
+                  ) : (
+                    step.desc
+                  )}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button class="carousel-btn next-btn" id="processNext" type="button" aria-label="Next step">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <!-- Dots Indicator -->
+      <div class="carousel-dots" id="processDots">
+        {steps.map((_, idx) => (
+          <button
+            class={`carousel-dot ${idx === 0 ? 'active' : ''}`}
+            data-dot-index={idx}
+            type="button"
+            aria-label={`Go to step ${idx + 1}`}
+          ></button>
+        ))}
+      </div>
+    </div>
+
+    <div class="process-cta">
+      <a href="#wd-form" class="btn-primary">
+        Start My Water Damage Recovery
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom wave to white -->
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" class="bottom-wave">
+    <path d="M0,55 C300,10 560,95 880,45 C1120,10 1300,60 1440,35 L1440,100 L0,100 Z" fill="#ffffff" fill-opacity=".45"></path>
+    <path d="M0,80 C260,50 520,98 800,70 C1080,42 1280,92 1440,66 L1440,100 L0,100 Z" fill="#ffffff"></path>
+  </svg>
+</section>
+
+<script>
+  function initProcessCarousel() {
+    const carousel = document.getElementById('processCarousel');
+    if (!carousel) return;
+
+    const track = document.getElementById('processTrack');
+    const prevBtn = document.getElementById('processPrev');
+    const nextBtn = document.getElementById('processNext');
+    const dots = document.querySelectorAll('#processDots .carousel-dot');
+    const slides = document.querySelectorAll('#processTrack .carousel-slide');
+    const totalSlides = slides.length;
+
+    let currentIndex = 0;
+    let autoplayTimer: ReturnType<typeof setInterval> | null = null;
+
+    function goToSlide(index: number) {
+      if (index < 0) {
+        currentIndex = totalSlides - 1;
+      } else if (index >= totalSlides) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+
+      if (track) {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayTimer = setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, 4000);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        stopAutoplay();
+        goToSlide(currentIndex - 1);
+        startAutoplay();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        stopAutoplay();
+        goToSlide(currentIndex + 1);
+        startAutoplay();
+      });
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        stopAutoplay();
+        const target = parseInt(dot.getAttribute('data-dot-index') || '0', 10);
+        goToSlide(target);
+        startAutoplay();
+      });
+    });
+
+    // Touch swipe support
+    let startX = 0;
+    let endX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+      stopAutoplay();
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          goToSlide(currentIndex + 1);
+        } else {
+          goToSlide(currentIndex - 1);
+        }
+      }
+      startAutoplay();
+    }, { passive: true });
+
+    startAutoplay();
+  }
+
+  initProcessCarousel();
+  document.addEventListener('astro:page-load', initProcessCarousel);
+</script>
+
+<style>
+  .process-section {
+    position: relative;
+    background-color: var(--er-cream);
+    padding: 100px 24px 140px;
+    overflow: hidden;
+  }
+
+  .process-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+    margin: 0;
+    text-align: center;
+    color: var(--er-black);
+    text-wrap: balance;
+  }
+
+  .highlight {
+    color: var(--er-red);
+  }
+
+  /* Desktop Steps Layout (Unchanged) */
+  .desktop-steps {
+    display: block;
+    position: relative;
+    margin-top: 60px;
+  }
+
+  .dashed-line {
+    position: absolute;
+    left: 16%;
+    right: 16%;
+    top: 44px;
+    border-top: 3px dashed var(--er-red);
+    opacity: 0.5;
+  }
+
+  .steps-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 40px;
+    text-align: center;
+  }
+
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-circle {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: 3px solid var(--er-red);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  }
+
+  .step-circle-white {
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .step-circle-red {
+    background: var(--er-red);
+    color: #ffffff;
+  }
+
+  .step-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--er-red);
+    margin: 28px 0 0;
+    line-height: 1.25;
+  }
+
+  .step-desc {
+    font-size: 16px;
+    line-height: 1.55;
+    margin: 14px auto 0;
+    max-width: 340px;
+    color: #444444;
+  }
+
+  .process-cta {
+    text-align: center;
+    margin-top: 52px;
+  }
+
+  .bottom-wave {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 84px;
+    display: block;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Mobile Carousel Styles */
+  .mobile-steps {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .desktop-steps {
+      display: none !important;
+    }
+
+    .mobile-steps {
+      display: block !important;
+      position: relative;
+      margin-top: 36px;
+      padding: 0 40px;
+    }
+
+    .process-section {
+      padding: 64px 16px 110px;
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      width: 100%;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 4px;
+    }
+
+    .mobile-step-card {
+      background: #FFFFFF;
+      padding: 32px 20px 28px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(230, 46, 46, 0.15);
+      text-align: center;
+    }
+
+    .mobile-step-card .step-circle {
+      width: 76px;
+      height: 76px;
+      font-size: 38px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-step-card .step-title {
+      font-size: 21px;
+      margin-top: 20px;
+    }
+
+    .mobile-step-card .step-desc {
+      font-size: 15px;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 2px solid var(--er-red);
+      color: var(--er-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(230, 46, 46, 0.2);
+      cursor: pointer;
+      z-index: 10;
+      transition: all var(--dur-fast);
+    }
+
+    .carousel-btn:active {
+      background: var(--er-red);
+      color: #FFFFFF;
+    }
+
+    .prev-btn {
+      left: -2px;
+    }
+
+    .next-btn {
+      right: -2px;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #D8D2C8;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all var(--dur-fast);
+    }
+
+    .carousel-dot.active {
+      background: var(--er-red);
+      width: 24px;
+      border-radius: 999px;
+    }
+
+    .process-cta {
+      margin-top: 36px;
+    }
+
+    .process-cta a {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+</style>

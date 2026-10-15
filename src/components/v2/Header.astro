@@ -1,0 +1,153 @@
+---
+// Header.astro - Sticky Header v2 for ER Emergency Restoration
+---
+
+<header class="site-header-v2" id="siteHeader">
+  <div class="container header-container">
+    
+    <!-- Logo -->
+    <a href="/" class="header-logo-link" aria-label="ER Emergency Restoration Home">
+      <img 
+        src="/assets/logos/er-logo-horizontal-raster.png" 
+        alt="ER Emergency Restoration" 
+        class="header-logo"
+        width="220"
+        height="56"
+      />
+    </a>
+
+    <!-- Contact & Call Button -->
+    <a href="tel:8185756016" class="header-phone-cta" aria-label="Call (818) 575-6016 for 24/7 Help">
+      <div class="phone-text-group">
+        <span class="phone-badge">24/7 Help</span>
+        <span class="phone-number">(818) 575-6016</span>
+      </div>
+      <div class="phone-icon-circle">
+        <i class="fa-solid fa-phone-volume"></i>
+      </div>
+    </a>
+
+  </div>
+</header>
+
+<style>
+  .site-header-v2 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-fast);
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    gap: 16px;
+  }
+
+  .header-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .header-logo {
+    height: 58px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .header-phone-cta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none !important;
+    color: var(--er-ink);
+    transition: transform var(--transition-fast);
+  }
+
+  .header-phone-cta:hover {
+    transform: translateY(-2px);
+  }
+
+  .phone-text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.15;
+  }
+
+  .phone-badge {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--er-red);
+  }
+
+  .phone-number {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--er-ink);
+  }
+
+  .phone-icon-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--er-red);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 0 0 5px var(--er-red-soft);
+    flex-shrink: 0;
+    transition: background-color var(--transition-fast);
+  }
+
+  .header-phone-cta:hover .phone-icon-circle {
+    background-color: var(--er-red-hover);
+  }
+
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 10px 16px;
+    }
+
+    .header-logo {
+      height: 44px;
+    }
+
+    .phone-number {
+      font-size: 19px;
+    }
+
+    .phone-badge {
+      font-size: 11px;
+    }
+
+    .phone-icon-circle {
+      width: 42px;
+      height: 42px;
+      font-size: 18px;
+      box-shadow: 0 0 0 3px var(--er-red-soft);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .phone-text-group {
+      display: none;
+    }
+  }
+</style>

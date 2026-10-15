@@ -1,0 +1,234 @@
+---
+// FaqSection.astro - Frequently Asked Questions with authentic ER Speech-Notch Accordion
+const faqs = [
+  {
+    q: 'How quickly can you get here for water damage?',
+    a: 'ER Emergency Restoration is available 24/7 and can arrive on-site within hours, depending on your location and current conditions. Call (818) 575-6016 for immediate assistance.'
+  },
+  {
+    q: 'Do you handle water damage from burst pipes and leaks?',
+    a: 'Yes. We help with water damage caused by burst pipes, leaking pipes, appliance failures, water heaters, air-conditioning units, overflows, storms, and other sources of water intrusion.'
+  },
+  {
+    q: 'Can you dry water inside walls, floors, and carpets?',
+    a: 'Yes. Our water damage restoration process includes drying affected areas such as walls, floors, and carpets, along with moisture monitoring to identify water that may not be obvious.'
+  },
+  {
+    q: 'Can water damage lead to mold?',
+    a: 'Moisture can create conditions that lead to mold growth. Acting quickly to extract water and dry affected areas is important. If mold-related concerns arise, ask our team about the appropriate next steps.'
+  },
+  {
+    q: 'Can you help with my insurance claim?',
+    a: 'We provide documentation of water damage and restoration work that you can use when communicating with your insurance company. Your insurer determines coverage and claim decisions.'
+  },
+  {
+    q: 'How much does water damage restoration cost?',
+    a: 'Every water-damage situation is different. We offer a free, no-obligation quote after reviewing the affected areas and the work required to restore your property.'
+  },
+  {
+    q: 'Do you restore the property after water extraction and drying?',
+    a: 'Yes. ER Emergency Restoration provides cleanup, repair, and restoration services after the affected areas are addressed.'
+  }
+];
+---
+
+<section class="faq-section er-texture">
+  <!-- Top wave inverted from white -->
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" class="top-wave">
+    <path d="M0,40 C240,92 480,4 720,42 C960,80 1200,8 1440,48 L1440,100 L0,100 Z" fill="#ffffff" fill-opacity=".45"></path>
+    <path d="M0,72 C220,30 430,96 720,62 C1010,26 1230,92 1440,58 L1440,100 L0,100 Z" fill="#ffffff"></path>
+  </svg>
+
+  <div class="faq-container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <div class="faq-list" id="faq-accordion">
+      {faqs.map((faq, index) => (
+        <div class={`faq-item ${index === 0 ? 'active' : ''}`} data-index={index}>
+          <button class="faq-question" type="button" aria-expanded={index === 0 ? 'true' : 'false'}>
+            <span class="question-text">{faq.q}</span>
+            <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            <span class="speech-notch"></span>
+          </button>
+          <div class="faq-answer">
+            <p>{faq.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function initFaqAccordion() {
+    const items = document.querySelectorAll('.faq-item');
+
+    items.forEach((item) => {
+      const btn = item.querySelector('.faq-question');
+      if (!btn) return;
+
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+
+        // Close all
+        items.forEach((other) => {
+          other.classList.remove('active');
+          const otherBtn = other.querySelector('.faq-question');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle clicked
+        if (!isOpen) {
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
+  // Run on mount
+  initFaqAccordion();
+  document.addEventListener('astro:page-load', initFaqAccordion);
+</script>
+
+<style>
+  .faq-section {
+    position: relative;
+    background-color: var(--er-cream);
+    padding: 130px 24px 140px;
+    overflow: hidden;
+  }
+
+  .top-wave {
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 100%;
+    height: 84px;
+    display: block;
+    pointer-events: none;
+    z-index: 2;
+    transform: scaleY(-1);
+  }
+
+  .faq-container {
+    max-width: 920px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+    margin: 0 0 48px;
+    text-align: center;
+    color: var(--er-black);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .faq-item {
+    background: #ffffff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow var(--dur-fast);
+  }
+
+  .faq-question {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    border: 0;
+    cursor: pointer;
+    padding: 22px 30px;
+    background: #ffffff;
+    color: #111111;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 17px;
+    transition: background-color var(--dur-fast), color var(--dur-fast);
+  }
+
+  .question-text {
+    padding-right: 18px;
+    line-height: 1.35;
+  }
+
+  .faq-chevron {
+    font-size: 14px;
+    transition: transform var(--dur-fast);
+    flex-shrink: 0;
+  }
+
+  /* Authentic speech notch pointing down */
+  .speech-notch {
+    position: absolute;
+    left: 60px;
+    bottom: -9px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 10px solid #ffffff;
+    z-index: 4;
+    transition: border-top-color var(--dur-fast);
+  }
+
+  .faq-item.active .faq-question {
+    background: var(--er-red);
+    color: #ffffff;
+  }
+
+  .faq-item.active .speech-notch {
+    border-top-color: var(--er-red);
+  }
+
+  .faq-item.active .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    display: none;
+    padding: 24px 30px 28px;
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+
+  .faq-answer p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--er-gray-dark);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .faq-section {
+      padding: 90px 18px 100px;
+    }
+    .faq-question {
+      padding: 18px 20px;
+      font-size: 16px;
+    }
+    .speech-notch {
+      left: 30px;
+    }
+    .faq-answer {
+      padding: 20px 20px 24px;
+    }
+  }
+</style>

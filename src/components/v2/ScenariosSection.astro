@@ -1,0 +1,254 @@
+---
+// ScenariosSection.astro - "Water Damage Help for the Emergencies You Did Not Plan For"
+const scenarios = [
+  {
+    image: "/assets/images/water/kitchen-pipe-repair.png",
+    alt: "Technician repairing burst water pipe in kitchen",
+    icon: "fa-solid fa-wrench",
+    title: "Burst or Leaking Pipes",
+    description: "A broken or leaking pipe can send water into walls, floors, and rooms before you know it. We help extract the water, dry affected materials, and begin the restoration process."
+  },
+  {
+    image: "/assets/images/water/washer-leak-extraction.png",
+    alt: "Water extraction from appliance and washing machine leak",
+    icon: "fa-solid fa-faucet-drip",
+    title: "Appliance and Water Heater Leaks",
+    description: "Washing machines, water heaters, air-conditioning units, and other appliances can create serious water damage. We assess the affected area and help you move from cleanup to restoration."
+  },
+  {
+    image: "/assets/images/water/water-extraction-living-room.png",
+    alt: "Flooded residential room standing water extraction",
+    icon: "fa-solid fa-water",
+    title: "Flooded Rooms and Standing Water",
+    description: "Whether water entered from a storm, overflow, plumbing issue, or another source, fast extraction and drying are essential. Our team is ready to help 24/7."
+  },
+  {
+    image: "/assets/images/water/moisture-meter-wall.png",
+    alt: "Professional technician measuring moisture behind drywall",
+    icon: "fa-solid fa-magnifying-glass-chart",
+    title: "Hidden Moisture After a Leak",
+    description: "Water can remain behind walls, under flooring, or in other concealed spaces. We use advanced moisture detection and drying methods to address the areas affected by water—not only what you can see."
+  }
+];
+---
+
+<section class="scenarios-section-v2">
+  <div class="container">
+    
+    <!-- Section Title -->
+    <h2 class="section-title-center">
+      Water Damage Help for the Emergencies <span class="italic-red">You Did Not Plan For</span>
+    </h2>
+
+    <!-- Cards Grid -->
+    <div class="scenarios-grid">
+      {scenarios.map((item) => (
+        <div class="scenario-card">
+          <div class="card-img-wrapper">
+            <img 
+              src={item.image} 
+              alt={item.alt} 
+              class="scenario-photo"
+              loading="lazy"
+            />
+            <div class="card-icon-badge">
+              <i class={item.icon}></i>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">{item.title}</h3>
+            <p class="card-desc">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Center Call Button -->
+    <div class="scenarios-cta-wrap">
+      <a href="tel:8185756016" class="btn-primary">
+        <i class="fa-solid fa-phone"></i>
+        <span>Call for Water Damage Help</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .scenarios-section-v2 {
+    background-color: #FFFFFF;
+    padding: 96px 0;
+  }
+
+  .section-title-center {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.15;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 860px;
+    color: var(--er-ink);
+    text-wrap: balance;
+  }
+
+  .italic-red {
+    color: var(--er-red);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .scenarios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 54px;
+  }
+
+  .scenario-card {
+    border: 1px solid var(--er-line);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .scenario-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-img-wrapper {
+    position: relative;
+    height: 195px;
+    width: 100%;
+    background-color: var(--er-charcoal);
+  }
+
+  .scenario-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-icon-badge {
+    position: absolute;
+    left: 20px;
+    bottom: -22px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--er-red);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px #FFFFFF;
+    font-size: 20px;
+  }
+
+  .card-body {
+    padding: 36px 22px 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--er-red);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--er-text-muted);
+    margin: 12px 0 0;
+    flex-grow: 1;
+  }
+
+  .scenarios-cta-wrap {
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 1100px) and (min-width: 769px) {
+    .scenarios-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .scenarios-section-v2 {
+      padding: 56px 0;
+    }
+
+    .scenarios-section-v2 .container {
+      padding: 0 8px;
+    }
+
+    .section-title-center {
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .scenarios-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 5px !important;
+      margin-top: 28px;
+    }
+
+    .scenario-card {
+      border-radius: 8px;
+    }
+
+    .card-img-wrapper {
+      height: 115px;
+    }
+
+    .card-icon-badge {
+      width: 32px;
+      height: 32px;
+      left: 10px;
+      bottom: -15px;
+      font-size: 13px;
+      box-shadow: 0 0 0 3px #FFFFFF;
+    }
+
+    .card-body {
+      padding: 22px 10px 14px;
+    }
+
+    .card-title {
+      font-size: 13.5px;
+      line-height: 1.25;
+    }
+
+    .card-desc {
+      font-size: 11px;
+      line-height: 1.4;
+      margin: 6px 0 0;
+    }
+
+    .scenarios-cta-wrap {
+      margin-top: 32px;
+    }
+
+    .scenarios-cta-wrap a {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      font-size: 15px;
+      padding: 14px 18px;
+    }
+  }
+</style>

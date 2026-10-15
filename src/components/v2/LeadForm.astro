@@ -1,0 +1,553 @@
+---
+// LeadForm.astro - Interactive 2-Step Lead Capture Form Card
+interface Props {
+  formId?: string;
+}
+
+const { formId = "hero-lead-form" } = Astro.props;
+---
+
+<div class="lead-form-card" id={formId}>
+  <!-- Card Header -->
+  <div class="form-header-bar">
+    <h3 class="form-title">Get My Free, No-Obligation Water Damage Quote</h3>
+  </div>
+
+  <div class="form-body">
+    <!-- Progress Indicator -->
+    <div class="step-indicator">
+      <div class="step-label" data-step-text>Step 1 of 2</div>
+      <div class="step-progress-track">
+        <div class="step-bar active" data-bar-1></div>
+        <div class="step-bar" data-bar-2></div>
+      </div>
+    </div>
+
+    <!-- The Actual Form -->
+    <form class="lead-step-form" data-lead-form autocomplete="on">
+      
+      <!-- STEP 1 CONTAINER -->
+      <div class="form-step step-1-container active" data-step-panel="1">
+        <div class="step-headline">Tell Us About the Water Damage</div>
+
+        <div class="form-fields-stack">
+          
+          <!-- Q1: Property Owner -->
+          <div class="form-group">
+            <label class="field-label">1. Are you the property owner or authorized to make restoration decisions?</label>
+            <div class="pill-toggle-grid">
+              <button type="button" class="pill-btn" data-pill-group="is_owner" data-value="Yes">Yes</button>
+              <button type="button" class="pill-btn" data-pill-group="is_owner" data-value="No">No</button>
+            </div>
+            <input type="hidden" name="is_owner" value="Yes" required />
+          </div>
+
+          <!-- Q2: Location Type -->
+          <div class="form-group">
+            <label class="field-label">2. What kind of location is this?</label>
+            <div class="pill-toggle-grid">
+              <button type="button" class="pill-btn" data-pill-group="location_type" data-value="Residential">Residential</button>
+              <button type="button" class="pill-btn" data-pill-group="location_type" data-value="Commercial">Commercial</button>
+            </div>
+            <input type="hidden" name="location_type" value="Residential" required />
+          </div>
+
+          <!-- Q3: ZIP Code -->
+          <div class="form-group">
+            <label class="field-label" for={`${formId}-zip`}>3. ZIP Code where the property is located</label>
+            <input 
+              type="text" 
+              id={`${formId}-zip`}
+              name="zip" 
+              placeholder="Enter ZIP Code" 
+              inputmode="numeric" 
+              class="form-input" 
+            />
+          </div>
+
+          <!-- Q4: Description -->
+          <div class="form-group">
+            <label class="field-label" for={`${formId}-desc`}>4. Please describe the type of water damage or restoration project you need help with.</label>
+            <textarea 
+              id={`${formId}-desc`}
+              name="project_description" 
+              rows="3" 
+              placeholder="Example: Burst pipe in the kitchen; water reached the cabinets and flooring." 
+              class="form-textarea"
+            ></textarea>
+          </div>
+
+          <!-- Continue Button -->
+          <button type="button" class="btn-step-next" data-btn-next>
+            <span>Continue &raquo;</span>
+          </button>
+
+          <div class="form-emergency-caption">
+            Water actively flowing or property flooded? <br class="mobile-only"/>
+            <a href="tel:8185756016" class="phone-link-red">Call now: (818) 575-6016</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STEP 2 CONTAINER -->
+      <div class="form-step step-2-container" data-step-panel="2">
+        <div class="step-2-header-row">
+          <div class="step-headline">How Can We Reach You?</div>
+          <button type="button" class="btn-step-back" data-btn-back>
+            <i class="fa-solid fa-angle-left"></i> Back
+          </button>
+        </div>
+
+        <div class="form-fields-stack">
+          <!-- Name Row -->
+          <div class="name-grid">
+            <div class="form-group">
+              <label class="field-label" for={`${formId}-fname`}>First Name</label>
+              <input 
+                type="text" 
+                id={`${formId}-fname`}
+                name="first_name" 
+                required 
+                class="form-input" 
+                placeholder="First name"
+              />
+            </div>
+            <div class="form-group">
+              <label class="field-label" for={`${formId}-lname`}>Last Name</label>
+              <input 
+                type="text" 
+                id={`${formId}-lname`}
+                name="last_name" 
+                required 
+                class="form-input" 
+                placeholder="Last name"
+              />
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label class="field-label" for={`${formId}-phone`}>Phone Number</label>
+            <input 
+              type="tel" 
+              id={`${formId}-phone`}
+              name="phone" 
+              required 
+              class="form-input" 
+              placeholder="(818) 000-0000"
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="field-label" for={`${formId}-email`}>Email Address</label>
+            <input 
+              type="email" 
+              id={`${formId}-email`}
+              name="email" 
+              required 
+              class="form-input" 
+              placeholder="name@example.com"
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-submit-lead" data-btn-submit>
+            <span>Get My 24/7 Water Damage Help</span>
+          </button>
+
+          <div class="form-emergency-caption">
+            Free, no-obligation quote. For immediate water-damage help, call 
+            <a href="tel:8185756016" class="phone-link-red">(818) 575-6016</a>.
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<style>
+  .lead-form-card {
+    background-color: #FFFFFF;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 520px;
+    font-family: var(--font-body);
+    color: var(--er-ink);
+  }
+
+  .form-header-bar {
+    background-color: var(--er-red);
+    color: #FFFFFF;
+    padding: 20px 28px 18px;
+    text-align: center;
+  }
+
+  .form-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  .form-body {
+    padding: 22px 28px 26px;
+  }
+
+  /* Progress indicator */
+  .step-indicator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .step-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--er-red);
+    white-space: nowrap;
+  }
+
+  .step-progress-track {
+    flex: 1;
+    display: flex;
+    gap: 6px;
+  }
+
+  .step-bar {
+    flex: 1;
+    height: 5px;
+    background-color: var(--er-line-soft);
+    border-radius: 3px;
+    transition: background-color var(--transition-fast);
+  }
+
+  .step-bar.active {
+    background-color: var(--er-red);
+  }
+
+  /* Step Panels */
+  .form-step {
+    display: none;
+  }
+
+  .form-step.active {
+    display: block;
+    animation: fadeIn 0.25s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-headline {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: var(--er-ink);
+  }
+
+  .step-2-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .step-2-header-row .step-headline {
+    margin-bottom: 0;
+  }
+
+  .btn-step-back {
+    border: none;
+    background: transparent;
+    color: var(--er-text-muted);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+  }
+
+  .btn-step-back:hover {
+    color: var(--er-red);
+  }
+
+  .form-fields-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .field-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--er-ink);
+    line-height: 1.35;
+  }
+
+  /* Pill Buttons */
+  .pill-toggle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .pill-btn {
+    height: 44px;
+    border: 1px solid #D9D9D9;
+    background-color: #FFFFFF;
+    color: var(--er-ink);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+  }
+
+  .pill-btn:hover {
+    border-color: var(--er-red);
+    color: var(--er-red);
+  }
+
+  .pill-btn.active {
+    border-color: var(--er-red);
+    background-color: var(--er-red-soft);
+    color: var(--er-red);
+    font-weight: 700;
+  }
+
+  /* Inputs */
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--er-ink);
+    background-color: #FFFFFF;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--er-red);
+    box-shadow: 0 0 0 3px rgba(230, 46, 46, 0.12);
+  }
+
+  .form-textarea {
+    resize: vertical;
+  }
+
+  .name-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* Buttons */
+  .btn-step-next {
+    height: 52px;
+    border: none;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+    margin-top: 4px;
+  }
+
+  .btn-step-next:hover {
+    background-color: #262626;
+  }
+
+  .btn-submit-lead {
+    height: 54px;
+    border: none;
+    background-color: var(--er-red);
+    color: #FFFFFF;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(230, 46, 46, 0.35);
+    transition: all var(--transition-fast);
+    margin-top: 6px;
+  }
+
+  .btn-submit-lead:hover {
+    background-color: var(--er-red-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(230, 46, 46, 0.45);
+  }
+
+  .form-emergency-caption {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--er-text-muted);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .phone-link-red {
+    color: var(--er-red);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .phone-link-red:hover {
+    text-decoration: underline;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    .form-body {
+      padding: 18px 20px 22px;
+    }
+    .form-title {
+      font-size: 20px;
+    }
+    .mobile-only {
+      display: inline;
+    }
+    .name-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function initLeadForms() {
+    const cards = document.querySelectorAll('.lead-form-card');
+
+    cards.forEach(card => {
+      const form = card.querySelector('[data-lead-form]');
+      if (!form || form.dataset.initialized) return;
+      form.dataset.initialized = 'true';
+
+      const step1Panel = card.querySelector('[data-step-panel="1"]');
+      const step2Panel = card.querySelector('[data-step-panel="2"]');
+      const stepLabel = card.querySelector('[data-step-text]');
+      const bar1 = card.querySelector('[data-bar-1]');
+      const bar2 = card.querySelector('[data-bar-2]');
+
+      const btnNext = card.querySelector('[data-btn-next]');
+      const btnBack = card.querySelector('[data-btn-back]');
+      const btnSubmit = card.querySelector('[data-btn-submit]');
+
+      // 1. Pill toggles for Q1 and Q2
+      const pillButtons = card.querySelectorAll('.pill-btn');
+      pillButtons.forEach(btn => {
+        const group = btn.dataset.pillGroup;
+        const val = btn.dataset.value;
+        const hiddenInput = form.querySelector(`input[name="${group}"]`);
+
+        // Set initial active state based on hidden input value
+        if (hiddenInput && hiddenInput.value === val) {
+          btn.classList.add('active');
+        }
+
+        btn.addEventListener('click', () => {
+          card.querySelectorAll(`.pill-btn[data-pill-group="${group}"]`).forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          if (hiddenInput) hiddenInput.value = val;
+        });
+      });
+
+      // 2. Next Step
+      if (btnNext) {
+        btnNext.addEventListener('click', () => {
+          step1Panel.classList.remove('active');
+          step2Panel.classList.add('active');
+          stepLabel.textContent = 'Step 2 of 2';
+          bar2.classList.add('active');
+        });
+      }
+
+      // 3. Back to Step 1
+      if (btnBack) {
+        btnBack.addEventListener('click', () => {
+          step2Panel.classList.remove('active');
+          step1Panel.classList.add('active');
+          stepLabel.textContent = 'Step 1 of 2';
+          bar2.classList.remove('active');
+        });
+      }
+
+      // 4. Form Submit handler via AJAX
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const originalBtnHtml = btnSubmit.innerHTML;
+        btnSubmit.disabled = true;
+        btnSubmit.style.opacity = '0.75';
+        btnSubmit.style.cursor = 'not-allowed';
+        btnSubmit.innerHTML = '<span><i class="fa-solid fa-spinner fa-spin"></i> Processing...</span>';
+
+        const formData = new FormData(form);
+        const payload = {
+          first_name: formData.get('first_name')?.toString().trim() || '',
+          last_name: formData.get('last_name')?.toString().trim() || '',
+          phone: formData.get('phone')?.toString().trim() || '',
+          email: formData.get('email')?.toString().trim() || '',
+          zip: formData.get('zip')?.toString().trim() || '',
+          project_description: formData.get('project_description')?.toString().trim() || '',
+          is_owner: formData.get('is_owner')?.toString() || 'Yes',
+          location_type: formData.get('location_type')?.toString() || 'Residential',
+          landing: 'water-damage-v2',
+          full_url: window.location.href,
+          timestamp: new Date().toISOString()
+        };
+
+        try {
+          const endpoint = '/api/submit-lead.php';
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          // Even if proxy fails or in static preview, proceed to Thank You Page
+          window.location.href = '/thank-you/';
+        } catch (err) {
+          console.error('Lead submission error:', err);
+          window.location.href = '/thank-you/';
+        }
+      });
+
+    });
+  })();
+</script>

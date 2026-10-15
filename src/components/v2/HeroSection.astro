@@ -1,0 +1,312 @@
+---
+// HeroSection.astro - Full-Bleed Photo Hero with 2-Step Lead Form
+import LeadForm from './LeadForm.astro';
+---
+
+<section class="hero-section-v2">
+  <!-- Background Image with Dark Linear Gradient Overlay -->
+  <div class="hero-bg-wrapper">
+    <img 
+      src="/assets/images/water/water-extraction-living-room.png" 
+      alt="ER Emergency Restoration technician extracting water" 
+      class="hero-bg-img"
+      loading="eager"
+    />
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="container hero-container">
+    
+    <!-- Left Column: Copy & Value Proposition -->
+    <div class="hero-content">
+      
+      <!-- Trust Badge -->
+      <div class="hero-status-badge">
+        <span class="status-pulse-dot"></span>
+        <span>Licensed &amp; Insured &middot; Available 24/7</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="hero-headline">
+        24/7 WATER DAMAGE <span class="highlight-red">RESTORATION</span> SERVICES
+      </h1>
+
+      <!-- Supporting Paragraphs -->
+      <p class="hero-lead">
+        Flooded room, burst pipe, or active leak? ER Emergency Restoration provides rapid water extraction, structural drying, cleanup, and restoration for homes and businesses in SoCal
+      </p>
+
+      <p class="hero-subtext">
+        Our licensed and insured restoration team is available 24/7 and can be on-site within hours to help limit further damage and begin the recovery process.
+      </p>
+
+      <!-- Benefit Bullets -->
+      <div class="hero-benefits-list">
+        <div class="benefit-item">
+          <div class="benefit-icon-circle">
+            <i class="fa-solid fa-droplet"></i>
+          </div>
+          <span class="benefit-text">Rapid water extraction and targeted drying</span>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon-circle">
+            <i class="fa-solid fa-house"></i>
+          </div>
+          <span class="benefit-text">Cleanup and restoration from one experienced team</span>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon-circle">
+            <i class="fa-solid fa-file-circle-check"></i>
+          </div>
+          <span class="benefit-text">Damage documentation to support your insurance claim process</span>
+        </div>
+      </div>
+
+      <!-- Emergency Call Pill -->
+      <div class="hero-cta-wrap">
+        <a href="tel:8185756016" class="call-pill hero-call-pill" aria-label="Call (818) 575-6016 for 24/7 Help">
+          <div class="call-pill-icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div class="call-pill-text">
+            <span class="call-pill-sub">Call Now for 24/7 Help</span>
+            <span class="call-pill-num">(818) 575-6016</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Interactive 2-Step Form -->
+    <div class="hero-form-col">
+      <LeadForm formId="hero-lead-form" />
+    </div>
+
+  </div>
+
+  <!-- Red Wave Bottom Divider -->
+  <svg class="wave-divider wave-bottom" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,40 C240,92 480,4 720,42 C960,80 1200,8 1440,48 L1440,100 L0,100 Z" fill="#E62E2E" fill-opacity=".45"></path>
+    <path d="M0,72 C220,30 430,96 720,62 C1010,26 1230,92 1440,58 L1440,100 L0,100 Z" fill="#E62E2E"></path>
+  </svg>
+</section>
+
+<style>
+  .hero-section-v2 {
+    position: relative;
+    background-color: var(--er-charcoal);
+    overflow: hidden;
+    padding-top: 60px;
+    padding-bottom: 120px;
+  }
+
+  .hero-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10, 10, 10, 0.90) 0%, rgba(10, 10, 10, 0.78) 55%, rgba(10, 10, 10, 0.40) 100%);
+    pointer-events: none;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(380px, 500px);
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding-right: 12px;
+  }
+
+  /* Badge */
+  .hero-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 7px 18px 7px 12px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    color: #FFFFFF;
+    width: fit-content;
+    backdrop-filter: blur(4px);
+  }
+
+  .status-pulse-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--er-green);
+    box-shadow: 0 0 0 4px rgba(61, 220, 132, 0.3);
+  }
+
+  /* H1 */
+  .hero-headline {
+    margin: 22px 0 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 52px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+    text-wrap: balance;
+  }
+
+  .highlight-red {
+    display: inline;
+    background-color: var(--er-red);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 0 10px;
+    border-radius: 2px;
+  }
+
+  .hero-lead {
+    font-size: 19px;
+    line-height: 1.55;
+    margin: 22px 0 0;
+    color: #FFFFFF;
+    max-width: 620px;
+    font-weight: 400;
+  }
+
+  .hero-subtext {
+    font-size: 16px;
+    line-height: 1.55;
+    margin: 12px 0 0;
+    max-width: 620px;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Benefits */
+  .hero-benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 26px;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .benefit-icon-circle {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    color: var(--er-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .benefit-text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 18px;
+    color: #FFFFFF;
+    line-height: 1.35;
+  }
+
+  .hero-cta-wrap {
+    margin-top: 32px;
+  }
+
+  .hero-call-pill {
+    padding: 12px 30px 12px 14px;
+  }
+
+  .hero-call-pill .call-pill-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 24px;
+  }
+
+  .hero-call-pill .call-pill-num {
+    font-size: 28px;
+  }
+
+  .hero-form-col {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* Responsive Rules */
+  @media (max-width: 1080px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .hero-form-col {
+      justify-content: center;
+    }
+
+    .hero-headline {
+      font-size: 42px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section-v2 {
+      padding-top: 36px;
+      padding-bottom: 90px;
+    }
+
+    .hero-headline {
+      font-size: 32px;
+      line-height: 1.1;
+    }
+
+    .hero-lead {
+      font-size: 17px;
+    }
+
+    .benefit-text {
+      font-size: 16px;
+    }
+
+    .benefit-icon-circle {
+      width: 38px;
+      height: 38px;
+      font-size: 16px;
+    }
+
+    .hero-call-pill {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
