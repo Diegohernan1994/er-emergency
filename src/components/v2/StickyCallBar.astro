@@ -3,11 +3,13 @@
 ---
 
 <div class="sticky-call-bar-wrapper">
-  <a href="tel:8185756016" class="sticky-call-bar">
+  <a href="tel:8185756016" class="sticky-call-bar" aria-label="Call ER Emergency Restoration">
     <span class="icon-pulse">
-      <i class="fa-solid fa-phone"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+      </svg>
     </span>
-    <span class="call-text">Call Now for 24/7 Help: <strong>(818) 575-6016</strong></span>
+    <span class="call-text">CALL NOW</span>
   </a>
 </div>
 
@@ -32,32 +34,32 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      height: 60px;
+      gap: 12px;
+      height: 56px;
       padding: 0 16px;
       color: #ffffff;
       text-decoration: none;
       font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 16px;
+      font-weight: 800;
+      font-size: 18px;
       text-transform: uppercase;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.05em;
     }
 
     .icon-pulse {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.22);
     }
 
     .call-text {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
     }
   }
 </style>
