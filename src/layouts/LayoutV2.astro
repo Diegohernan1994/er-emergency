@@ -5,11 +5,15 @@ import '../styles/global-v2.css';
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
 }
 
 const {
   title = "24/7 Water Damage Restoration Services | ER Emergency Restoration",
-  description = "Rapid water extraction, structural drying, and complete restoration in Los Angeles. Licensed & insured, available 24/7. Call (818) 575-6016."
+  description = "Rapid water extraction, structural drying, and complete restoration in Los Angeles. Licensed & insured, available 24/7. Call (818) 575-6016.",
+  ogImage = "https://eremergencyrestoration.gdtwo.com/assets/images/hero/og-water-damage.jpg",
+  canonicalUrl = "https://eremergencyrestoration.gdtwo.com/v2/"
 } = Astro.props;
 ---
 
@@ -26,7 +30,26 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    
+
+    <!-- Open Graph / WhatsApp / Instagram / Facebook / iMessage -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ER Emergency Restoration" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="24/7 Water Damage Restoration Services - ER Emergency Restoration" />
+
+    <!-- Twitter / X / Telegram / Discord Large Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
     
