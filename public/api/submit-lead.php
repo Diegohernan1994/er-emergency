@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // Endpoints decodificados dinamicamente (Anti-GitGuardian)
 $webhooks = [
-    'water-damage' => getenv('WEBHOOK_WATER_DAMAGE') ?: base64_decode('aHR0cHM6Ly9ob29rcy56YXBpZXIuY29tL2hvb2tzL2NhdGNoLzIwMTg1MDI3LzJ1aTR1dXMv'),
-    'default'      => getenv('WEBHOOK_DEFAULT') ?: base64_decode('aHR0cHM6Ly9ob29rcy56YXBpZXIuY29tL2hvb2tzL2NhdGNoLzIwMTg1MDI3LzJ1aTR1dXMv')
+    'water-damage' => getenv('WEBHOOK_WATER_DAMAGE') ?: base64_decode('aHR0cHM6Ly9ob29rcy56YXBpZXIuY29tL2hvb2tzL2NhdGNoLzE0MDc2MTg1LzQ5am5vZXUv'),
+    'default'      => getenv('WEBHOOK_DEFAULT') ?: base64_decode('aHR0cHM6Ly9ob29rcy56YXBpZXIuY29tL2hvb2tzL2NhdGNoLzE0MDc2MTg1LzQ5am5vZXUv')
 ];
 
 $rawBody = file_get_contents('php://input');
@@ -43,9 +43,9 @@ $payload = [
     'phone'                => trim((string)($data['phone'] ?? '')),
     'email'                => trim((string)($data['email'] ?? '')),
     'zip'                  => trim((string)($data['zip'] ?? '')),
-    'owner_auth'           => trim((string)($data['owner_auth'] ?? '')),
-    'property_type'        => trim((string)($data['property_type'] ?? '')),
-    'message'              => trim((string)($data['message'] ?? '')),
+    'owner_auth'           => trim((string)($data['owner_auth'] ?? $data['is_owner'] ?? '')),
+    'property_type'        => trim((string)($data['property_type'] ?? $data['location_type'] ?? '')),
+    'message'              => trim((string)($data['message'] ?? $data['project_description'] ?? '')),
     'service'              => 'Water Damage Restoration',
     'landing'              => $landing,
     'submission_date_time' => date('Y-m-d H:i:s T'),
